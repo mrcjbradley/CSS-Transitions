@@ -29,3 +29,33 @@ In addition to the entry file, the `Javascript` will be proken up into separate 
 - Day 1: Set up basic structure for project and entry file, as well as basics for additional files. Build out demo skeleton, including snippet component. Research CSS Animation/Transitions and settle on 6 effects to accomplish. 
 - Day 2, 3, 4: 2 effects added, tested, and bug free. 
 - Day 5: Final styling for overall page, refactor code (with special attention to snippets). 
+
+## Assets Used 
+
+<!-- Photo by Samir Belhamra @Grafixart_photo from Pexels 
+- https://www.pexels.com/photo/time-lapse-photography-of-mountain-934964/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
+
+- https://www.pexels.com/photo/sky-space-telescope-universe-41951/
+
+- https://www.pexels.com/photo/sky-earth-space-working-2156/
+
+Photo by Tobias Bjørkli from Pexels
+- https://www.pexels.com/photo/photo-of-rocky-mountains-under-night-sky-1819662/
+
+Photo by Sam Willis from Pexels
+- https://www.pexels.com/photo/photo-of-night-sky-1154610/
+
+
+Photo by Felix Mittermeier from Pexels
+- https://www.pexels.com/photo/starry-sky-1205302/
+
+- https://www.pexels.com/photo/stars-sky-night-galaxy-14676/
+
+Photo by Toni Ivanov from Pexels
+- https://www.pexels.com/photo/worm-s-eye-view-of-building-during-night-1454379/
+
+Photo by Lucas França from Pexels
+- https://www.pexels.com/photo/aerial-photography-of-buildings-1759815/
+
+Photo by Zaid Abu Taha from Pexels
+- https://www.pexels.com/photo/rock-formation-1405077/ -->

@@ -1,0 +1,77 @@
+@import 'reset';
+@import 'components/hello-world.scss';
+@import url("https://use.typekit.net/zsj5aru.css");
+
+body {
+    display: flex;
+    font-size: 16px;
+    height: 100%;
+    background-size: 100%;
+    animation: background-color-shift 90s 0s alternate infinite ease;
+    
+}
+
+@keyframes background-color-shift{
+    0% {background-color: rgb(109, 163, 204); }
+    50% {background-color: rgb(220, 124, 173);}
+    100% {background-color: rgb(238, 51, 82);}
+
+}
+
+.Landing_Aside {
+    width: 20%;
+    height: 100vh;
+    display: block;
+    
+}
+
+.Landing_Main {
+    width: 80%;
+    height: 100%;
+}
+
+.Landing_title {
+    width: fit-content;
+    margin: 10px auto 20px auto;
+    font-family: ohno-blazeface, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 4em;
+    
+}
+
+#demo{
+    border: 1px solid #3f3f3f;
+    width: 78%;
+    height: 80%;
+    position: absolute;
+    top: calc(4em + 45px);
+    box-shadow: -3px 3px 5px 2px #3f3f3f;
+    // background: white;
+}
+
+//Multibox
+
+.Demo_MainNav,
+.Demo_Header {
+    height:100%;
+}
+
+.MainNav_MenuList{
+    display:flex;
+    flex-wrap: wrap;
+    height: 50%;
+}
+
+.MainNav_MenuListItem {
+    width: 33.33%;
+    height: 100%;
+    background: blue;
+    display: block;
+    position: relative;
+    display:none;
+}
+
+#demo {
+    background-image: url('../images/arid-canyon-cave.jpg');
+}
