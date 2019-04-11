@@ -22,7 +22,10 @@ This project will be built primarily with vanilla `Javascript`,`CSS`, and `HTML5
 In addition to the entry file, the `Javascript` will be proken up into separate files for each of the 6 effects, a file for rendering the basic page elements, and a util file for universally useful functions.
 
 ## Wireframes
-![main view wireframe]()
+![main view wireframe](https://github.com/mrcjbradley/CSS-Transitions/blob/master/wireframe.png)
 
 
 ## Implementation Timeline
+- Day 1: Set up basic structure for project and entry file, as well as basics for additional files. Build out demo skeleton, including snippet component. Research CSS Animation/Transitions and settle on 6 effects to accomplish. 
+- Day 2, 3, 4: 2 effects added, tested, and bug free. 
+- Day 5: Final styling for overall page, refactor code (with special attention to snippets). 
