@@ -1,0 +1,90 @@
+// ~~ BACKGROUNDS ~~ //
+
+.bg-cosmic-castle{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg');
+}
+
+.bg-cosmic-city{
+    background-image: url('https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/architecture-buildings-city.jpg?raw=true');
+}
+
+.bg-cosmic-cave{
+    background-image: url('https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/arid-canyon-cave.jpg?raw=true');
+}
+
+.bg-astronaut{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronaut-astronomy-cosmos.jpg');
+}
+
+.bg-cosmic-colors{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronomy-color-cosmos.jpg');
+}
+
+.bg-cosmic-aurora{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/aurora-aurora-borealis-constellation.jpg');
+}
+
+.bg-cosmic-galaxy{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/bavaria-cosmos-galaxy.jpg');
+}
+
+.bg-cosmic-galaxy-dark{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/black-wallpaper-dark-galaxy.jpg');
+}
+
+.bg-cosmic-dusk{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-dusk.jpg');
+}
+
+.bg-cosmic-evening{
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-evening.jpg');
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: scale(1.1);
+}
+
+.bg-overlay-black{
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+}
+
+.bg-overlay-blue {
+    background-color: rgba(0, 30, 255, 0.3);
+    background-blend-mode: overlay;
+}
+
+#demo {
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.MainNav_MenuListItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: helvetica;
+    text-decoration: none;
+    color: white;
+}
+
+

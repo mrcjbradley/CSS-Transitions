@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // window.HTMLComponent = HTMLComponent;
     // window.el = el;
+
+
+
+    window.body = document.querySelector("body");
     
     const demo = document.getElementById('demo');
     const title = document.getElementsByClassName('js-title')[0];
@@ -21,31 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const menuLis = Array.from(document.getElementsByClassName('js-menu-li'));
     const menuUl = menuLis[0].parentElement;
+
+
     
 });
 
 
 
 
-// const store = {
-//     effects: {
-//         1: {
-//             id: 1,
-//             name: 'Glitch',
-//             elements: {
 
-//             }
-//         }
-//     }
-// };
-
-
-// class DemoConfig {
-//     constructor(effectId){
-//         this.effectId = effectId;
-//     }
-
-//     buildHtmlElements(){
-//         const htmlContent = effects
-//     }
-// }
