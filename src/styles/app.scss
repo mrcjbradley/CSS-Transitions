@@ -92,6 +92,11 @@
         background-position: 50%;
         top: 0;
         transform-origin: top;
+        transition: background 0.45s ease-in-out;
+
+        &:hover {
+            background-size: 330%;
+        }
     }
     &:nth-child(3){
         right:50%;
