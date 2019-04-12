@@ -1,5 +1,4 @@
 @import 'reset';
-@import 'components/hello-world.scss';
 @import url("https://use.typekit.net/zsj5aru.css");
 
 body {
@@ -8,13 +7,13 @@ body {
     height: 100%;
     background-size: 100%;
     animation: background-color-shift 90s 0s alternate infinite ease;
-    
+    // overflow: hidden;
 }
 
 @keyframes background-color-shift{
     0% {background-color: rgb(109, 163, 204); }
-    50% {background-color: rgb(220, 124, 173);}
-    100% {background-color: rgb(238, 51, 82);}
+    50% {background-color: rgb(66, 47, 240);}
+    100% {background-color: rgb(28, 4, 148);}
 
 }
 
@@ -41,13 +40,19 @@ body {
 }
 
 #demo{
-    border: 1px solid #3f3f3f;
-    width: 78%;
-    height: 80%;
+    // border: 1px solid #3f3f3f;
+    // width: 78%;
+    // height: 80%;
+    // position: absolute;
+    // top: calc(4em + 45px);
+    // box-shadow: -3px 3px 5px 2px #3f3f3f;
+
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: calc(4em + 45px);
-    box-shadow: -3px 3px 5px 2px #3f3f3f;
-    // background: white;
+    top: 0;
+    left: 0;
+
 }
 
 //Multibox
@@ -58,20 +63,82 @@ body {
 }
 
 .MainNav_MenuList{
-    display:flex;
     flex-wrap: wrap;
     height: 50%;
 }
 
 .MainNav_MenuListItem {
-    width: 33.33%;
-    height: 100%;
+    width: 25%;
+    height: 40%;
     background: blue;
+    box-sizing: border-box;
     display: block;
-    position: relative;
-    display:none;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    &:first-child {
+        height: 60%;
+        width: 0;
+        background:blue;
+        top: 0;
+        transform-origin: left;
+        transition-delay: 0.1s;
+    }
+    &:nth-child(2){
+        height: 0;
+        right: 50%;
+        background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/black-wallpaper-dark-galaxy.jpg');
+        background-size: 300%;
+        background-position: 50%;
+        top: 0;
+        transform-origin: top;
+    }
+    &:nth-child(3){
+        right:50%;
+        width: 0;
+        background: blue;
+        transform-origin: right;
+        transition-delay: 0.1s;
+    }
+    &:nth-child(4){
+        transform-origin: bottom;
+        height: 0;
+        background: rgb(0, 123, 255);
+    }
+    &:last-child {
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        transform-origin:right;
+        background: rgb(0, 123, 255);
+    }
+    
+    // display:none;
+    transition: width 0.5s ease,
+    height 0.5s ease 0.25s;
 }
 
+// @keyframes multibox-expand {
+//     from {
+//         width: 0px;
+//     }
+
+//     to {
+
+//     }
+// }
+
 #demo {
-    background-image: url('../images/arid-canyon-cave.jpg');
+    background-image: url('https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg');
+    background-size: 110%;
+}
+
+.DemoMenuToggle {
+    z-index: 1000;
+    font-size: 1.6em;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
 }
