@@ -82,7 +82,7 @@
         background:blue;
         top: 0;
         transform-origin: left;
-        transition-delay: 0.1s;
+        // transition-delay: 0.1s;
     }
     &:nth-child(2){
         height: 0;
@@ -92,7 +92,8 @@
         background-position: 50%;
         top: 0;
         transform-origin: top;
-        transition: background 0.45s ease-in-out;
+        transition: background 0.45s 0.5s ease-in-out;
+        transition: height 0.5s .5s ease-in-out;
 
         &:hover {
             background-size: 330%;
@@ -103,7 +104,7 @@
         width: 0;
         background: blue;
         transform-origin: right;
-        transition-delay: 0.1s;
+        // transition-delay: 0.1s;
     }
     &:nth-child(4){
         transform-origin: bottom;
@@ -120,8 +121,8 @@
     }
     
     // display:none;
-    transition: width 0.5s ease,
-    height 0.5s ease 0.25s;
+    transition: width 0.5s  .5s ease-in-out,
+    height 0.5s .5s ease-in-out;
 }
 
 // // #demo {

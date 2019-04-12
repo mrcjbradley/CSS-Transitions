@@ -25,6 +25,8 @@ class MultiBoxMenu {
             for (let idx = 0; idx < menuLis.length; idx++) {
                 const element = menuLis[idx];
                 if (openMenu){
+                    document.querySelector('.DemoMain').style.visibility = 'visible';
+                    document.querySelector('.DemoMain').style.opacity = '1';
                     switch(idx){
                         case 0: element.style.width = '0%'; break;
                         case 1: element.style.height = '0%';  break;
@@ -33,8 +35,10 @@ class MultiBoxMenu {
                         case 4: element.style.width = '0%';  break;
                     }
                     document.getElementById("menuIcon").innerHTML = `<i class="fas fa-box"> </i>`;
-                    element.innerHTML = '';
+                    setTimeout(() => (element.innerHTML = ''), 1000);
                 } else {
+                    document.querySelector('.DemoMain').style.visibility = 'hidden';
+                    document.querySelector('.DemoMain').style.opacity = '0';
                     switch(idx){
                         case 0: element.style.width = '25%'; break;
                         case 1: element.style.height = '60%'; break;
@@ -70,7 +74,8 @@ class MultiBoxMenu {
         };
 
         // debugger
-        document.getElementsByClassName('bg')[0].addEventListener('mousemove', (e) => {
+        // document.getElementsByClassName('bg')[0].addEventListener('mousemove', (e) => {
+        window.addEventListener('mousemove', (e) => {
             const lMouseX = Math.max(-100, Math.min(100, window.innerWidth / 2 - e.clientX));
             const lMouseY = Math.max(-100, Math.min(100, window.innerHeight / 2 - e.clientY));
             lFollowX = (20 * lMouseX) / 150;
@@ -129,11 +134,13 @@ const multiBoxContent = `
             <li class="MainNav_MenuListItem js-menu-li">Menu Item 5</li>
         </ul>
     </nav>
-    <!-- <article class="DemoMain">
-            <h1 class="DemoMain_Title">Demo Title</h1>
-            <h2 class="DemoMain_Subtitle">Demo Subtitle</h1>
-    </article> -->   
-</header>
+    </header>
+    <article class="DemoMain">
+            <div class="DemoMain_CentralContainer">
+                <h1 class="DemoMain_Title">Multi-Box Menu</h1>
+                <h2 class="DemoMain_Subtitle">This demo features a menu that toggles on and off in a boxed up animation. Click the box.</h2>
+            </div>
+    </article>
 `;
 
 export default new MultiBoxMenu(multiBoxContent);
