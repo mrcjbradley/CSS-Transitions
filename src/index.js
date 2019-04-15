@@ -1,39 +1,29 @@
 import MultiBoxMenu from './effects/MultiBoxMenu';
 import './styles/app.scss';
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
-
-});
-
-
-const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
-const loadingContainer = document.getElementsByClassName('loading-container')[0];
-const loadingAnimation = document.getElementsByClassName('loading-animation')[0];
-const navLinks = Array.from(document.getElementsByClassName('nav-link'));
-const demoSuperNav = document.getElementsByClassName('demo-super-nav')[0];
-const burger = document.getElementById("burger-box");
-let openMenu = false;
-
-
-let loading = false;
-
-const toggleLoading = () => {
-    if (loading) {
-        loadingContainer.style.transformOrigin = "bottom";
-        loadingContainer.classList.remove('loading');
-    } else {
-        loadingContainer.style.transformOrigin = "top";
-        loadingContainer.classList.add('loading');
-    }
-    loading = !loading;
-};
-
-document.addEventListener("DOMContentLoaded", () => {
+    
+    const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
+    const loadingContainer = document.getElementsByClassName('loading-container')[0];
+    const loadingAnimation = document.getElementsByClassName('loading-animation')[0];
+    const navLinks = Array.from(document.getElementsByClassName('nav-link'));
+    const demoSuperNav = document.getElementsByClassName('demo-super-nav')[0];
+    const burger = document.getElementById("burger-box");
+    let openMenu = false;
+    
+    
+    let loading = false;
+    
+    const toggleLoading = () => {
+        if (loading) {
+            loadingContainer.style.transformOrigin = "bottom";
+            loadingContainer.classList.remove('loading');
+        } else {
+            loadingContainer.style.transformOrigin = "top";
+            loadingContainer.classList.add('loading');
+        }
+        loading = !loading;
+    };
 
 
 
