@@ -2,7 +2,8 @@ import MultiBoxMenu from './effects/MultiBoxMenu';
 import './styles/app.scss';
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    // console.log('hello');
+    document.querySelector('body').innerHTML = startingContent;
     const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
     const loadingContainer = document.getElementsByClassName('loading-container')[0];
     const loadingAnimation = document.getElementsByClassName('loading-animation')[0];
@@ -47,11 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
     }));
 
-    if (location.hash.length > 1){
-    const startingSect = location.hash.slice(1);
+    const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home' ;
     const activeElem = document.getElementById('nav-link-' + startingSect);
-    activeElem.classList.add('active');
-    demoSuperNav.classList.add( ['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');}
+   
+        activeElem.classList.add('active');
+        demoSuperNav.classList.add( ['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');
+
 
     navLinks.forEach((navLink, idx) => navLink.addEventListener('click', (e) => {
         navLinks.forEach((link, idx2) => {
@@ -84,6 +86,46 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+const startingContent = `
+    <div id="demo"></div>
+    <div class="loading-wrapper">
+        <div class="loading-container">
+            <div class="loading-animation" data-anim="loading" data-text="loading...">loading...</div>
+        </div>
+    </div>
+        <div class="effect-selection">
+            <span class="effect-btn" data-body-class="collapsing-menu-effect">Collapsing Menu</span>
+            <span class="effect-btn" data-body-class="sliding-box-menu-effect">Sliding Box Menu</span>
+            <span class="effect-btn" data-body-class="multi-box-menu-effect">Multi Box Menu</span>
+            <!-- <span class="effect-btn" data-body-class="hover-split-menu-effect">Hover Split Menu</span> -->
+            <!-- <span class="effect-btn" data-body-class="card-flip-effect">Card Flip</span> -->
+            <!-- <span class="effect-btn" data-body-class="hover-reveal-effect">Hover Reveal</span> -->
+            <!-- <span class="effect-btn" data-body-class="page-slide-effect">Page Slide</span> -->
+        </div>
 
+
+
+
+<div id="burger-box">menu</div>
+<div class="demo-super-nav white">
+    <nav class="demo-nav">
+        <a href="#home" class="nav-link active" id="nav-link-home">home</a>
+        <a href="#about" class="nav-link" id="nav-link-about">about</a>
+        <a href="#products" class="nav-link" id="nav-link-products">products</a>
+        <a href="#services" class="nav-link" id="nav-link-services">services</a>
+        <a href="#contact" class="nav-link" id="nav-link-contact">contact</a>
+    </nav>
+</div>
+
+
+<div class="demo-section-container">
+    <section class="demo-section" id="home" >home</section>
+    <section class="demo-section" id="about">about</section>
+    <section class="demo-section" id="products" >products</section>
+    <section class="demo-section" id="services">services</section>
+    <section class="demo-section" id="contact" >contact</section>
+</div>
+
+`;
 
 
