@@ -13,6 +13,12 @@
 .demo-nav {
 }
 
+$slidingMenuBase: 225ms;
+
+@mixin slidingMenuTime($factor: 1) {
+    animation-delay: $slidingMenuBase * $factor;
+}
+
 .nav-link {
     position: absolute;
     display: block;
@@ -30,7 +36,7 @@
         top: 0%;
         width: calc(35% - 150px);
         height: 150px;
-        animation-delay: 2500ms;
+        @include slidingMenuTime(5);
     }
 
     &:nth-child(2) {
@@ -39,7 +45,7 @@
         right: 0;
         width: 35%;
         height: calc(65vh - 150px);
-        animation-delay: 2000ms;
+        @include slidingMenuTime(4);
     }
 
     &:nth-child(3) {
@@ -47,8 +53,7 @@
         right: 35%;
         height: 65%;
         width: 40%;
-        animation-delay: 1500ms;
-        // width: 20%;
+        @include slidingMenuTime(3)
     }
 
     &:nth-child(4) {
@@ -57,7 +62,7 @@
         right: 0%;
         width: 75%;
         height: 35%;
-        animation-delay: 1000ms;
+        @include slidingMenuTime(2);
     }
 
     &:nth-child(5) {
@@ -66,6 +71,7 @@
         height: 100%;
         width: 25%;
         animation-delay: 500ms;
+        @include slidingMenuTime();
     }
 
     &:nth-child(odd) {
@@ -78,7 +84,7 @@
         transform-origin: top;
     }
 
-    animation: 500ms ease-in-out both;
+    animation: $slidingMenuBase ease-in-out both;
 
 
 
@@ -113,6 +119,7 @@
     animation-name: fold-even;
 }
 
+
 .demo-super-nav.open {
 
     .nav-link:nth-child(odd) {
@@ -124,24 +131,23 @@
     }
 
     .nav-link:first-child {
-       animation-delay: 500ms;
+       @include slidingMenuTime();
     }
 
     .nav-link:nth-child(2) {
-       animation-delay: 1000ms;
+       @include slidingMenuTime(2)
     }
 
     .nav-link:nth-child(3) {
-        animation-delay: 1500ms;
-        // width: 20%;
+        @include slidingMenuTime(3)
     }
 
     .nav-link:nth-child(4) {
-        animation-delay: 2000ms;
+        @include slidingMenuTime(4)
     }
 
     .nav-link:nth-child(5) {
-        animation-delay: 2500ms;
+        @include slidingMenuTime(5)
     }
 
 }
@@ -176,7 +182,7 @@
 }
 
 .demo-section {
-    height: 100%;
+    height: calc(100vh - 3rem);
     width: 100vw;
     display: flex;
     align-items: center;

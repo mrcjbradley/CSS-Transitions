@@ -35,7 +35,7 @@ body {
     transform-style: preserve-3d;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 3em);
     overflow: hidden;
 }
 
@@ -57,14 +57,15 @@ body {
 
     blockquote {
         font-family: 'Times New Roman', Times, serif;
-        font-size: 3.8em;
+        font-size: 3vmax;
+        position: relative;
 
         .quote {
             display: flex;
-            z-index: 1000;
             position: relative;
+            z-index: 1000;
             margin: 0 auto;
-            padding: 75px 20px 20px 39px;
+            padding: 1.5vmax;
             overflow: hidden;
         }
 
@@ -72,13 +73,16 @@ body {
 }
 
 .quoteIcon {
+    
     font-size: 5em;
+    z-index: 999;
     color: #0033ff;
     position: absolute;
     opacity: 0.7;
     z-index: 1;
-    top: 7%;
-    left: 3%;
+    top: -.15em;
+    left: 0em;
+    
 }
 
 .featured-link {
@@ -112,6 +116,7 @@ body {
 
 .effect-element-link{
     position: relative;
+    font-size: 3.5vmax;
         &::after {
             content: '';
             width: 100%;
@@ -160,6 +165,22 @@ body {
     text-transform: lowercase;
     letter-spacing: 0.15em;
     opacity: 0.45;
+}
+
+
+.effect-link {
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    display: block;
+    margin: .5vmin;
+}
+
+.efftect-link-lable {
+    font-size: 1.2em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    display: block;
+    margin: 3vmin;
 }
 
 

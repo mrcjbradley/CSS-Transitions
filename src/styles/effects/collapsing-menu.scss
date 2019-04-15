@@ -76,7 +76,7 @@
     }
 
     .demo-section {
-        height: 100%;
+        height: calc(100vh - 3rem);
         width: 100vw;
         display: flex;
         align-items: center;
