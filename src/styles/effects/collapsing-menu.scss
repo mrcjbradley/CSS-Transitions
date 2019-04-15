@@ -1,0 +1,150 @@
+
+// demo nav styling
+.collapsing-menu-effect {
+
+    #menuIcon{
+        display:none;
+    }
+
+    .demo-super-nav {
+        position: fixed;
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        transition: background 500ms ease-in-out;
+
+        &.white {
+            background: white;
+        }
+
+        &.lightblue {
+            background: lightblue;
+        }
+    }
+
+    .demo-nav {
+        top: 0px;
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .nav-link {
+        padding: 2em;
+        font-weight: 200;
+        position: relative;
+        width: 20%;
+        transition: background 300ms 0ms ease-in-out,
+            color 300ms ease-in-out;
+        text-align: center;
+
+        &:hover, &.active {
+            font-weight: 600;
+        }
+    }
+
+    .white .nav-link {
+        color: darken(lightblue, 25%);
+        
+    }
+    
+    .white .nav-link:hover, 
+    .white .demo-nav .nav-link.active {
+        background: lightblue;
+        color: white;
+        // border: 1px solid red;
+    }
+
+    .lightblue .nav-link {
+        color: white;
+    }
+    .lightblue .nav-link:hover,
+    .lightblue .nav-link.active {
+        background: white;
+        color: lightblue;
+    }
+
+
+    // General demo-section styling
+
+    .demo-div-container {
+        display: flex;
+        height: 100%;
+        width: 100vw;
+        flex-direction: column;
+    }
+
+    .demo-section {
+        height: 100%;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10vmax;
+        // border: 5px solid red;
+
+        &:nth-child(odd) {
+            background: lightblue;
+        }
+
+    }
+
+    #burger-box {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        scroll-behavior: auto;
+    }
+
+.collapsing-menu-effect {
+    #burger-box {
+        display: block;
+        position: fixed;
+        top: 1vmax;
+        right: 1vmax;
+        z-index: 100;
+    }
+
+    .demo-super-nav {
+        // display:none;
+        // visibility: 0;
+        // opacity: 0;
+        height: 0vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(1,0);
+        transform-origin: top;
+        transition: transform 300ms ease-in-out;
+            // visibility 0ms 0ms linear,
+            // opacity 0ms 0ms linear;
+        // background: lightblue;  
+
+        &.open {
+            transform: scale(1,1);
+            height: 100vh;
+            // visibility: visible;
+            // opacity: 1;
+            
+            //  transition: transform 300ms 0ms ease-in-out,
+                // visibility 0ms 300ms linear,
+                // opacity 0ms 300ms linear;
+        }
+    }
+
+    .demo-nav {
+        display: flex;
+        flex-direction: column;
+        // height: 80%;
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+    }
+
+}}

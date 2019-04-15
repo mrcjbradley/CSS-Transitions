@@ -1,6 +1,9 @@
 @import 'reset';
 @import './effects//multi-box.scss';
 @import url("https://use.typekit.net/zsj5aru.css");
+@import './loading.scss';
+@import './effects/collapsing-menu.scss';
+@import './effects/sliding-menu.scss';
 
 // body {
 //     // display: flex;
@@ -92,8 +95,7 @@
         background-position: 50%;
         top: 0;
         transform-origin: top;
-        transition: background 0.45s 0.5s ease-in-out;
-        transition: height 0.5s .5s ease-in-out;
+        transition: background-size 0.45s 0s ease-in-out, height 0.5s .5s ease-in-out;
 
         &:hover {
             background-size: 330%;
@@ -138,3 +140,5 @@
     right: 20px;
     color: white;
 }
+
+

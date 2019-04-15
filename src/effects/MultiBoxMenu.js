@@ -137,8 +137,8 @@ const multiBoxContent = `
     </header>
     <article class="DemoMain">
             <div class="DemoMain_CentralContainer">
-                <h1 class="DemoMain_Title">Multi-Box Menu</h1>
-                <h2 class="DemoMain_Subtitle">This demo features a menu that toggles on and off in a boxed up animation. Click the box.</h2>
+                <h1 class="DemoMain_Title">CSS Navigation Demo</h1>
+                <h2 class="DemoMain_Subtitle"> A work in progress . . . </h2>
             </div>
     </article>
 `;

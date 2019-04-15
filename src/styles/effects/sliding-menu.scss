@@ -1,0 +1,210 @@
+@import '../variables-mixins.scss';
+
+.sliding-box-menu-effect {
+
+.demo-super-nav {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+ 
+
+.demo-nav {
+}
+
+.nav-link {
+    position: absolute;
+    display: block;
+    top: 0;
+    @include cherry-sans(1.5em);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // right: 10%;
+
+    &:first-child {
+        background: blue;
+        right: 150px;
+        top: 0%;
+        width: calc(35% - 150px);
+        height: 150px;
+        animation-delay: 2500ms;
+    }
+
+    &:nth-child(2) {
+        background: red;
+        top: 150px;
+        right: 0;
+        width: 35%;
+        height: calc(65vh - 150px);
+        animation-delay: 2000ms;
+    }
+
+    &:nth-child(3) {
+        background: orange;
+        right: 35%;
+        height: 65%;
+        width: 40%;
+        animation-delay: 1500ms;
+        // width: 20%;
+    }
+
+    &:nth-child(4) {
+        background: pink;
+        top: 65%;
+        right: 0%;
+        width: 75%;
+        height: 35%;
+        animation-delay: 1000ms;
+    }
+
+    &:nth-child(5) {
+        background: green;
+        right: 75%;
+        height: 100%;
+        width: 25%;
+        animation-delay: 500ms;
+    }
+
+    &:nth-child(odd) {
+        transform: scale(0, 1);
+        transform-origin: right;
+    }
+
+    &:nth-child(even) {
+        transform: scale(1, 0);
+        transform-origin: top;
+    }
+
+    animation: 500ms ease-in-out both;
+
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% + 0.5em);
+        transform: scale(0,1);
+        width: 70%;
+        border-top: 2px solid white;
+        transition: all 300ms;
+    }
+
+}
+
+.demo-super-nav .nav-link:hover,
+.demo-super-nav .nav-link.active {
+    font-size: 3em;
+
+
+    &::after {
+        transform: scale(1,1);
+    }
+
+}
+
+.demo-super-nav .nav-link:nth-child(odd) {
+    animation-name: fold-odd;
+}
+
+.demo-super-nav .nav-link:nth-child(even) {
+    animation-name: fold-even;
+}
+
+.demo-super-nav.open {
+
+    .nav-link:nth-child(odd) {
+    animation-name: unfold-odd;
+    }
+
+    .nav-link:nth-child(even) {
+    animation-name: unfold-even;
+    }
+
+    .nav-link:first-child {
+       animation-delay: 500ms;
+    }
+
+    .nav-link:nth-child(2) {
+       animation-delay: 1000ms;
+    }
+
+    .nav-link:nth-child(3) {
+        animation-delay: 1500ms;
+        // width: 20%;
+    }
+
+    .nav-link:nth-child(4) {
+        animation-delay: 2000ms;
+    }
+
+    .nav-link:nth-child(5) {
+        animation-delay: 2500ms;
+    }
+
+}
+
+
+@keyframes unfold-odd {
+    0% { transform: scale(0,1) }
+    100% {transform: scale(1,1);}
+}
+
+@keyframes unfold-even {
+    0% { transform: scale(1,0) }
+    100% {transform: scale(1,1);}
+}
+
+@keyframes fold-odd {
+    0% {transform: scale(1,1);}
+    100% {transform: scale(0,1);}
+}
+
+@keyframes fold-even {
+    0% {transform: scale(1, 1);}
+    100% {transform: scale(1,0);}
+}
+// General demo-section styling
+
+.demo-div-container {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.demo-section {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10vmax;
+    // border: 5px solid red;
+
+    &:nth-child(odd) {
+        background: lightblue;
+    }
+
+}
+
+    #burger-box {
+            // display: block;
+            position: fixed;
+            background: brown;
+            top: 0;
+            right: 0;
+            height: 150px;
+            width: 150px;
+            z-index: 100;
+            @include cherry-sans(1.5em);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+    }
+
+}
