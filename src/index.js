@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ======= START:  handle initial active selection ======= //
 
     const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home' ;
+    debugger
     const activeElem = document.getElementById('nav-link-' + startingSect);
     activeElem.classList.add('active');
     demoSuperNav.classList.add( ['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');
@@ -115,7 +116,7 @@ const startingContent = `
 <div id="burger-box">menu</div>
 <div class="demo-super-nav white">
     <nav class="demo-nav">
-        <a href="#home" class="nav-link active" id="nav-link-home">home</a>
+        <a href="#home" class="nav-link" id="nav-link-home">home</a>
         <a href="#about" class="nav-link" id="nav-link-about">about</a>
         <a href="#products" class="nav-link" id="nav-link-products">products</a>
         <a href="#services" class="nav-link" id="nav-link-services">services</a>
