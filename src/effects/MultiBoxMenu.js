@@ -22,8 +22,6 @@ class MultiBoxMenu {
             for (let idx = 0; idx < menuLis.length; idx++) {
                 const element = menuLis[idx];
                 if (openMenu){
-                    document.querySelector('.DemoMain').style.visibility = 'visible';
-                    document.querySelector('.DemoMain').style.opacity = '1';
                     switch(idx){
                         case 0: element.style.width = '0%'; break;
                         case 1: element.style.height = '0%';  break;
@@ -34,8 +32,6 @@ class MultiBoxMenu {
                     document.getElementById("menuIcon").innerHTML = `<i class="fas fa-box"> </i>`;
                     setTimeout(() => (element.innerHTML = ''), 1000);
                 } else {
-                    document.querySelector('.DemoMain').style.visibility = 'hidden';
-                    document.querySelector('.DemoMain').style.opacity = '0';
                     switch(idx){
                         case 0: element.style.width = '25%'; break;
                         case 1: element.style.height = '60%'; break;
@@ -48,6 +44,10 @@ class MultiBoxMenu {
             }
 
             menuLis.forEach((li, idx) => li.innerHTML = menuOptions[idx]);
+
+            Array.from(document.getElementsByClassName('effect-element-link')).forEach(eleLink => {
+                    eleLink.addEventListener("click", (e) => {setTimeout(toggleMultiBoxMenu,100);});
+            });
             
             Array.from(document.getElementsByClassName('effect-btn')).forEach(btn => btn.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -125,34 +125,27 @@ const menuOptions = [
         <a href="" class="contact-link">Get in touch now →</a>
     `,
     `   <ul>
-        <li><a href="" class="effect-element-link txt-tf-lower"><span class="ol-super-number">01</span> <span>Menu Animation</span></a></li>
-        <li><a href="" class="effect-element-link txt-tf-lower"><span class="ol-super-number">02</span> <span>Background Animation</span></a></li>
-        <li><a href="" class="effect-element-link txt-tf-lower"><span class="ol-super-number">03</span> <span>Content Styling</span></a></li>
-        <li><a href="" class="effect-element-link txt-tf-lower"><span class="ol-super-number">04</span> <span>More...</span></a></li>
+        <li><a href="#home" class="effect-element-link txt-tf-lower"><span class="ol-super-number">01</span> <span>home</span></a></li>
+        <li><a href="#about" class="effect-element-link txt-tf-lower"><span class="ol-super-number">02</span> <span>about</span></a></li>
+        <li><a href="#services" class="effect-element-link txt-tf-lower"><span class="ol-super-number">03</span> <span>services</span></a></li>
+        <li><a href="#products" class="effect-element-link txt-tf-lower"><span class="ol-super-number">04</span> <span>products</span></a></li>
+        <li><a href="#contact" class="effect-element-link txt-tf-lower"><span class="ol-super-number">05</span> <span>contact</span></a></li>
         </ul>
     `
 ];
 
 const multiBoxContent = `
- <div class="bg bg-cosmic-city bg-overlay-black"></div>
- <header class="Demo_Header">
+
     <nav class="Demo_MainNav">
         <span class="DemoMenuToggle js-menu-toggle" > <span id="menuIcon"><i class="fas fa-box"> </i></span></span>
         <ul class="MainNav_MenuList">
-            <li class="MainNav_MenuListItem js-menu-li">Menu Item 1</li>
-            <li class="MainNav_MenuListItem js-menu-li bg-overlay-blue">Menu Item 2</li>
-            <li class="MainNav_MenuListItem js-menu-li">Menu Item 3</li>
-            <li class="MainNav_MenuListItem js-menu-li">Menu Item 4</li>
-            <li class="MainNav_MenuListItem js-menu-li">Menu Item 5</li>
+            <li class="MainNav_MenuListItem js-menu-li"></li>
+            <li class="MainNav_MenuListItem js-menu-li bg-overlay-blue"></li>
+            <li class="MainNav_MenuListItem js-menu-li"></li>
+            <li class="MainNav_MenuListItem js-menu-li"></li>
+            <li class="MainNav_MenuListItem js-menu-li"></li>
         </ul>
     </nav>
-    </header>
-    <article class="DemoMain">
-            <div class="DemoMain_CentralContainer">
-                <h1 class="DemoMain_Title">CSS Navigation Demo</h1>
-                <h2 class="DemoMain_Subtitle"> A work in progress . . . </h2>
-            </div>
-    </article>
 `;
 
 export default new MultiBoxMenu(multiBoxContent);

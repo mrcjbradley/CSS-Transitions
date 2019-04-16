@@ -181,20 +181,20 @@ $slidingMenuBase: 225ms;
     flex-direction: column;
 }
 
-.demo-section {
-    height: calc(100vh - 3rem);
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10vmax;
-    // border: 5px solid red;
+// .demo-section {
+//     height: calc(100vh - 3rem);
+//     width: 100vw;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 10vmax;
+//     // border: 5px solid red;
 
-    &:nth-child(odd) {
-        background: lightblue;
-    }
+//     &:nth-child(odd) {
+//         background: lightblue;
+//     }
 
-}
+// }
 
     #burger-box {
             // display: block;

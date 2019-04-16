@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleLoading();
     document.getElementById('starting-content-container').innerHTML = startingContent;
        const demo = document.getElementById('demo');
-
        MultiBoxMenu.render(demo);
        MultiBoxMenu.jsRecognize(toggleLoading);
     setTimeout(toggleLoading, 1000);
@@ -59,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ======= START:  handle initial active selection ======= //
 
     const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home' ;
-    debugger
     const activeElem = document.getElementById('nav-link-' + startingSect);
     activeElem.classList.add('active');
     demoSuperNav.classList.add( ['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');
@@ -95,7 +93,6 @@ const startingLoadWrapperContent = `
         </div>
     </div>
     <div id="starting-content-container">
-        
     </div>
 `;
 
@@ -109,8 +106,6 @@ const startingContent = `
             <!-- <span class="effect-btn" data-body-class="hover-reveal-effect">Hover Reveal</span> -->
             <!-- <span class="effect-btn" data-body-class="page-slide-effect">Page Slide</span> -->
     </div>
-
-
 
 
 <div id="burger-box">menu</div>
@@ -132,7 +127,7 @@ const startingContent = `
     <section class="demo-section" id="services">services</section>
     <section class="demo-section" id="contact" >contact</section>
 </div>
-
+<div class="bg bg-cosmic-city bg-overlay-black"></div>
 `;
 
 
