@@ -42,16 +42,41 @@ startDemo.appendChild(demo.element);
 
 /* ===  START: Generate Demo Menu Container === */
 
-const buildEffectSelection = (effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu']) => {
-    const effectSelection = new content('div', {klass:'effect-selection'});
-    // const effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu'];
-    effectNames.forEach(effect => {
-        const newEffect = new content('a', {klass:"effect-btn", content: effect});
-        newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
-        effectSelection.append(newEffect);
-    });
-    return effectSelection.element;
-};
+class buildEffectSelection {
+    constructor(effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu']){
+        this.effectSelection = new content('div', {klass:'effect-selection'});
+        this.effectLinks = {};
+        effectNames.forEach(effect => {
+            const newEffect = new content('a', {klass:"effect-btn", content: effect});
+            newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
+            this.effectSelection.append(newEffect);
+            this.effectLinks[newEffect.content] = newEffect;
+        });
+
+        this.activateListeners = this.activateListeners.bind(this);
+    }
+    
+    activateListeners(toggleLoading){
+        Object.values(this.effectLinks).forEach(effectLink => effectLink.element.addEventListener("click", (e) => {
+                e.preventDefault();
+                toggleLoading();
+                setTimeout(() => {
+                    const menuType = effectLink.element.getAttribute("data-body-class");
+                    document.querySelector('body').classList = menuType;
+                    document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
+                }, 500);
+                setTimeout(() => {
+                    toggleLoading();
+                }, 2000);
+            }
+        ));
+        
+    }
+
+    render(hook){
+        hook.appendChild(this.effectSelection.element);
+    }
+}
 
 /* ===  END: Generate Demo Menu Container === */
 
@@ -65,11 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
  
     loader.toggleLoading();
     
-    const effectMenu = buildEffectSelection();
+    const effectMenu = new buildEffectSelection();
+    const demoSections = buildDemoSections();
+    const movingBG = buildMovingBackground();
 
-    thatBod.appendChild(effectMenu);
-    thatBod.appendChild(buildDemoSections());
-    thatBod.appendChild(buildMovingBackground());
+    effectMenu.render(thatBod);
+    thatBod.appendChild(demoSections);
+    thatBod.appendChild(movingBG);
 
     const demoMenu = new demoNav();
     demoMenu.render(thatBod);
@@ -81,20 +108,22 @@ document.addEventListener("DOMContentLoaded", () => {
     demoMenu.toggleActive(startingSect); 
     demoMenu.activateListeners();
 
-    const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
+    effectMenu.activateListeners(loader.toggleLoading);
 
-    effectBtns.forEach(btn => btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        loader.toggleLoading();
-        setTimeout(() => {
-            const menuType = btn.getAttribute("data-body-class");
-            document.querySelector('body').classList = menuType;
-            document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
+    // const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
 
-        }, 500);
-        setTimeout(() => {
-            loader.toggleLoading();
-        }, 2000);
-    }));
+    // effectBtns.forEach(btn => btn.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     loader.toggleLoading();
+    //     setTimeout(() => {
+    //         const menuType = btn.getAttribute("data-body-class");
+    //         document.querySelector('body').classList = menuType;
+    //         document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
+
+    //     }, 500);
+    //     setTimeout(() => {
+    //         loader.toggleLoading();
+    //     }, 2000);
+    // }));
 
 });
