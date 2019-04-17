@@ -22,6 +22,7 @@ const buildDemoSections = () => {
 /* ===  END: Generate Demo Sections  === */
 
 /* ===  START: Generate BG  === */
+
 const buildMovingBackground = () => {
     const movingBackground = new content('div', {klass: 'bg'});
     movingBackground.addClass('bg-cosmic-city');
@@ -33,7 +34,6 @@ const buildMovingBackground = () => {
 
 /* ===  START: Generate Demo  === */
 
-
 const demo = new content('div', {klass: 'demo'});
 const startDemo = document.createDocumentFragment();
 startDemo.appendChild(demo.element);
@@ -42,29 +42,35 @@ startDemo.appendChild(demo.element);
 
 /* ===  START: Generate Demo Menu Container === */
 
-const effectSelection = new content('div', {klass:'effect-selection'});
-const effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu'];
-effectNames.forEach(effect => {
-    const newEffect = new content('a', {klass:"effect-btn", content: effect});
-    newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
-    effectSelection.append(newEffect);
-});
+const buildEffectSelection = (effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu']) => {
+    const effectSelection = new content('div', {klass:'effect-selection'});
+    // const effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu'];
+    effectNames.forEach(effect => {
+        const newEffect = new content('a', {klass:"effect-btn", content: effect});
+        newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
+        effectSelection.append(newEffect);
+    });
+    return effectSelection.element;
+};
 
 /* ===  END: Generate Demo Menu Container === */
 
-const startingContent = document.createDocumentFragment();
-startingContent.append(effectSelection.element);
-startingContent.append(buildDemoSections());
-startingContent.append(buildMovingBackground());
 
 document.addEventListener("DOMContentLoaded", () => {
-    const loader = new BuildLoadingAnimation();
     const thatBod = document.querySelector('body');
+
+    const loader = new BuildLoadingAnimation();
     loader.render(thatBod);
     thatBod.append(startDemo);
  
     loader.toggleLoading();
-    thatBod.appendChild(startingContent);
+    
+    const effectMenu = buildEffectSelection();
+
+    thatBod.appendChild(effectMenu);
+    thatBod.appendChild(buildDemoSections());
+    thatBod.appendChild(buildMovingBackground());
+
     const demoMenu = new demoNav();
     demoMenu.render(thatBod);
     MultiBoxMenu.render(demo.element);
@@ -81,7 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loader.toggleLoading();
         setTimeout(() => {
-            document.querySelector('body').classList = btn.getAttribute("data-body-class");
+            const menuType = btn.getAttribute("data-body-class");
+            document.querySelector('body').classList = menuType;
+            document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
+
         }, 500);
         setTimeout(() => {
             loader.toggleLoading();
