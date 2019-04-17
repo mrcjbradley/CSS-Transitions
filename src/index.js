@@ -1,37 +1,144 @@
 import MultiBoxMenu from './effects/MultiBoxMenu';
 import './styles/app.scss';
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector('body').innerHTML = startingLoadWrapperContent;
-    const loadingContainer = document.getElementsByClassName('loading-container')[0];
+class content {
+    constructor(elementType, {klass = 'test' , id = "", content = ""}){
+        this.klass = klass ? klass :  "demo-section";
+        this.id = id ? id : "";
+        this.content = content ? content : "";
+        this.element = document.createElement(elementType);
+        this.element.classList.add(klass);
+        this.element.setAttribute('id', id);
+        this.element.append(content);
+    }
+
+    addClass(klass){
+        this.element.classList.add(klass);
+    }
+
+    removeClass(klass){
+        this.element.classList.remove(klass);
+    }
+
+    toggleClass(klass){
+        if (this.element.classList.includes(klass)){
+            this.element.classList.remove(klass);
+        } else {
+            this.element.classList.remove(klass);
+        }
+    }
+
+    append(innerContent){
+        if (Array.isArray(innerContent)){
+            innerContent.forEach(inner => {
+                this.element.append(inner.constructor === content ? inner.element : inner);
+            });
+        } else {
+            this.element.append(innerContent.constructor === content ? innerContent.element : innerContent);
+        }
+    }
     
+    addAttr(type, detail){
+        this.element.setAttribute( type, detail);
+    }
+
+    addData(type, detail){
+        this.addAttr(`data-${type}`, detail);
+    }
+
+} 
+
+const homeSection = new content('section', {klass: 'demo-section', id: 'home', content: 'home'});
+const aboutSection = new content('section', {klass: 'demo-section', id: 'about', content: 'about'});
+const productsSection = new content('section', {klass: 'demo-section', id: 'products', content: 'products'});
+const servicesSection = new content('section', {klass: 'demo-section', id: 'services', content: 'services'});
+const contactSection = new content('section', {klass: 'demo-section', id: 'contact', content: 'contact'});
+
+const demoSections = new content('div', {klass: 'demo-section-contatiner'});
+demoSections.append([homeSection, aboutSection, productsSection, servicesSection, contactSection]);
+const movingBackground = new content('div', {klass: 'bg'});
+movingBackground.addClass('bg-cosmic-city');
+movingBackground.addClass('bg-overlay-black');
+
+const loadingAnimation = new content('div', {klass: 'loading-animation', content: 'loading...'});
+loadingAnimation.addData('anim', 'loading');
+loadingAnimation.addData('text', 'loading...');
+
+const loadingContainer = new content('div', {klass: 'loading-container'});
+loadingContainer.append(loadingAnimation);
+const loadingWrapper = new content('div', {klass: 'loading-wrapper'});
+loadingWrapper.append(loadingContainer);
+const demo = new content('div', {klass: 'demo'});
+const startDemo = document.createDocumentFragment();
+startDemo.appendChild(demo.element);
+startDemo.appendChild(loadingWrapper.element);
+
+const demoNav = ["home", "about", "products", "services", "contact"];
+const demoNavLinks = document.createDocumentFragment();
+demoNav.forEach(navItem => {
+    const newNavLink = new content('a', {klass:"nav-link", id:`nav-link-${navItem}`, content: navItem});
+    newNavLink.addAttr('href', `#${navItem}`);
+    demoNavLinks.appendChild(newNavLink.element);
+});
+
+
+const burgerBoxMenu = new content('div', {id:'burger-box', content: 'menu'});
+const demoNavDiv = new content('div', {klass: 'demo-nav', content: demoNavLinks});
+const demoSuperNavDiv = new content('div', {klass: 'demo-super-nav', content: demoNavDiv.element});
+demoSuperNavDiv.addClass('white');
+const demoMenuContainer = document.createDocumentFragment();
+demoMenuContainer.appendChild(burgerBoxMenu.element);
+demoMenuContainer.appendChild(demoSuperNavDiv.element);
+
+const effectSelection = new content('div', {klass:'effect-selection'});
+const effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu'];
+effectNames.forEach(effect => {
+    const newEffect = new content('a', {klass:"effect-btn", content: effect});
+    newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
+    effectSelection.append(newEffect);
+});
+
+
+const startingContent = document.createDocumentFragment();
+startingContent.append(effectSelection.element);
+startingContent.append(demoSections.element);
+startingContent.append(movingBackground.element);
+startingContent.append(demoMenuContainer);
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('body').append(startDemo);
+    // const loadingContainer = document.getElementsByClassName('loading-container')[0];
+    // debugger
     let openMenu = false;
     let loading = false;
 
     const toggleLoading = () => {
         if (loading) {
-            loadingContainer.style.transformOrigin = "bottom";
-            loadingContainer.classList.remove('loading');
+            loadingContainer.element.style.transformOrigin = "bottom";
+            loadingContainer.element.classList.remove('loading');
         } else {
-            loadingContainer.style.transformOrigin = "top";
-            loadingContainer.classList.add('loading');
+            loadingContainer.element.style.transformOrigin = "top";
+            loadingContainer.element.classList.add('loading');
         }
         loading = !loading;
     };
 
     toggleLoading();
-    document.getElementById('starting-content-container').innerHTML = startingContent;
-       const demo = document.getElementById('demo');
-       MultiBoxMenu.render(demo);
-       MultiBoxMenu.jsRecognize(toggleLoading);
+    document.querySelector('body').appendChild(startingContent);
+    MultiBoxMenu.render(demo.element);
+    MultiBoxMenu.jsRecognize(toggleLoading);
     setTimeout(toggleLoading, 1000);
-        
-    // debugger
+
+    
 
     const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
+    // debugger
     const navLinks = Array.from(document.getElementsByClassName('nav-link'));
     const demoSuperNav = document.getElementsByClassName('demo-super-nav')[0];
-    const burger = document.getElementById("burger-box");
+    const burger =burgerBoxMenu.element;
 
     burger.addEventListener("click", (e) => {
         if (openMenu) {
@@ -57,10 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ======= START:  handle initial active selection ======= //
 
-    const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home' ;
+    const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home';
     const activeElem = document.getElementById('nav-link-' + startingSect);
     activeElem.classList.add('active');
-    demoSuperNav.classList.add( ['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');
+    demoSuperNav.classList.add(['about', 'services'].includes(startingSect) ? 'lightblue' : 'white');
 
     // ======= END:  handle initial active selection ======= //
 
@@ -71,63 +178,15 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.remove('active');
         });
         navLink.classList.add('active');
-            demoSuperNav.classList.add(idx % 2 !== 0 ? "lightblue" : "white");
-            demoSuperNav.classList.remove(idx % 2 === 0 ? "lightblue" : "white");
-            demoSuperNav.classList.remove('open');
-            burger.innerText = "menu";
-            openMenu = !openMenu;
+        demoSuperNav.classList.add(idx % 2 !== 0 ? "lightblue" : "white");
+        demoSuperNav.classList.remove(idx % 2 === 0 ? "lightblue" : "white");
+        demoSuperNav.classList.remove('open');
+        burger.innerText = "menu";
+        openMenu = !openMenu;
     }));
 
     // ======= END:  addEventListeners to Demo Nav Links ======= //
 
- 
+
 
 });
-
-
-const startingLoadWrapperContent = `
-    <div id="demo"></div>
-    <div class="loading-wrapper">
-        <div class="loading-container">
-            <div class="loading-animation" data-anim="loading" data-text="loading...">loading...</div>
-        </div>
-    </div>
-    <div id="starting-content-container">
-    </div>
-`;
-
-const startingContent = `
-    <div class="effect-selection">
-            <span class="effect-btn" data-body-class="collapsing-menu-effect">Collapsing Menu</span>
-            <span class="effect-btn" data-body-class="sliding-box-menu-effect">Sliding Box Menu</span>
-            <span class="effect-btn" data-body-class="multi-box-menu-effect">Multi Box Menu</span>
-            <!-- <span class="effect-btn" data-body-class="hover-split-menu-effect">Hover Split Menu</span> -->
-            <!-- <span class="effect-btn" data-body-class="card-flip-effect">Card Flip</span> -->
-            <!-- <span class="effect-btn" data-body-class="hover-reveal-effect">Hover Reveal</span> -->
-            <!-- <span class="effect-btn" data-body-class="page-slide-effect">Page Slide</span> -->
-    </div>
-
-
-<div id="burger-box">menu</div>
-<div class="demo-super-nav white">
-    <nav class="demo-nav">
-        <a href="#home" class="nav-link" id="nav-link-home">home</a>
-        <a href="#about" class="nav-link" id="nav-link-about">about</a>
-        <a href="#products" class="nav-link" id="nav-link-products">products</a>
-        <a href="#services" class="nav-link" id="nav-link-services">services</a>
-        <a href="#contact" class="nav-link" id="nav-link-contact">contact</a>
-    </nav>
-</div>
-
-
-<div class="demo-section-container">
-    <section class="demo-section" id="home" >home</section>
-    <section class="demo-section" id="about">about</section>
-    <section class="demo-section" id="products" >products</section>
-    <section class="demo-section" id="services">services</section>
-    <section class="demo-section" id="contact" >contact</section>
-</div>
-<div class="bg bg-cosmic-city bg-overlay-black"></div>
-`;
-
-
