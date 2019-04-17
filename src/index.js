@@ -1,25 +1,11 @@
 import content from './HTMLComponent';
 import MultiBoxMenu from './effects/MultiBoxMenu';
 import BuildLoadingAnimation from './BuildLoadingAnimation';
+import buildEffectSelection from './buildEffectSelection';
+import buildDemoSections from './buildDemoSections';
 import demoNav from './demoNav';
 import './styles/app.scss';
 
-
-/* ===  START: Generate Demo Sections  === */
-const buildDemoSections = () => {
-    const demoSections = new content('div', {klass: 'demo-section-contatiner'});
-    
-    const homeSection = new content('section', {klass: 'demo-section', id: 'home', content: 'home'});
-    const aboutSection = new content('section', {klass: 'demo-section', id: 'about', content: 'about'});
-    const productsSection = new content('section', {klass: 'demo-section', id: 'products', content: 'products'});
-    const servicesSection = new content('section', {klass: 'demo-section', id: 'services', content: 'services'});
-    const contactSection = new content('section', {klass: 'demo-section', id: 'contact', content: 'contact'});
-    
-    demoSections.append([homeSection, aboutSection, productsSection, servicesSection, contactSection]);
-    return demoSections.element;
-};
-
-/* ===  END: Generate Demo Sections  === */
 
 /* ===  START: Generate BG  === */
 
@@ -40,47 +26,6 @@ startDemo.appendChild(demo.element);
 
 /* ===  END: Generate Demo === */
 
-/* ===  START: Generate Demo Menu Container === */
-
-class buildEffectSelection {
-    constructor(effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu']){
-        this.effectSelection = new content('div', {klass:'effect-selection'});
-        this.effectLinks = {};
-        effectNames.forEach(effect => {
-            const newEffect = new content('a', {klass:"effect-btn", content: effect});
-            newEffect.addData('body-class', `${effect.replace(/ /g , '-')}-effect`);
-            this.effectSelection.append(newEffect);
-            this.effectLinks[newEffect.content] = newEffect;
-        });
-
-        this.activateListeners = this.activateListeners.bind(this);
-    }
-    
-    activateListeners(toggleLoading){
-        Object.values(this.effectLinks).forEach(effectLink => effectLink.element.addEventListener("click", (e) => {
-                e.preventDefault();
-                toggleLoading();
-                setTimeout(() => {
-                    const menuType = effectLink.element.getAttribute("data-body-class");
-                    document.querySelector('body').classList = menuType;
-                    document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
-                }, 500);
-                setTimeout(() => {
-                    toggleLoading();
-                }, 2000);
-            }
-        ));
-        
-    }
-
-    render(hook){
-        hook.appendChild(this.effectSelection.element);
-    }
-}
-
-/* ===  END: Generate Demo Menu Container === */
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const thatBod = document.querySelector('body');
 
@@ -90,40 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
  
     loader.toggleLoading();
     
-    const effectMenu = new buildEffectSelection();
-    const demoSections = buildDemoSections();
-    const movingBG = buildMovingBackground();
+        const effectMenu = new buildEffectSelection();
+        const demoSections = new buildDemoSections();
+        const movingBG = buildMovingBackground();
 
-    effectMenu.render(thatBod);
-    thatBod.appendChild(demoSections);
-    thatBod.appendChild(movingBG);
+        effectMenu.render(thatBod);
+        demoSections.render(thatBod);
+        thatBod.appendChild(movingBG);
 
-    const demoMenu = new demoNav();
-    demoMenu.render(thatBod);
-    MultiBoxMenu.render(demo.element);
-    MultiBoxMenu.jsRecognize(loader.toggleLoading);
+        const demoMenu = new demoNav();
+        demoMenu.render(thatBod);
+
+        MultiBoxMenu.render(demo.element);
+        MultiBoxMenu.jsRecognize(loader.toggleLoading);
+
+        const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home';
+        demoMenu.toggleActive(startingSect); 
+        demoMenu.activateListeners();
+        effectMenu.activateListeners(loader.toggleLoading);
+
     setTimeout(loader.toggleLoading, 1000);
 
-    const startingSect = location.hash.length > 1 ? location.hash.slice(1) : 'home';
-    demoMenu.toggleActive(startingSect); 
-    demoMenu.activateListeners();
 
-    effectMenu.activateListeners(loader.toggleLoading);
-
-    // const effectBtns = Array.from(document.getElementsByClassName('effect-btn'));
-
-    // effectBtns.forEach(btn => btn.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     loader.toggleLoading();
-    //     setTimeout(() => {
-    //         const menuType = btn.getAttribute("data-body-class");
-    //         document.querySelector('body').classList = menuType;
-    //         document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
-
-    //     }, 500);
-    //     setTimeout(() => {
-    //         loader.toggleLoading();
-    //     }, 2000);
-    // }));
 
 });
