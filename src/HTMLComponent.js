@@ -16,8 +16,9 @@ class content {
         this.addData = this.addData.bind(this);
     }
 
-    addClass(klass){
-        this.element.classList.add(klass);
+    addClass(...klassList){
+        // debugger
+        klassList.forEach(klass => this.element.classList.add(klass));
     }
 
     removeClass(klass){

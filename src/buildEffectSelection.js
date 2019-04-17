@@ -1,7 +1,7 @@
 import content from './HTMLComponent';
 
 class buildEffectSelection {
-    constructor(effectNames = ['collapsing menu', 'sliding box menu', 'multi box menu']) {
+    constructor(...effectNames) {
         this.effectSelection = new content('div', {
             klass: 'effect-selection'
         });
@@ -36,7 +36,11 @@ class buildEffectSelection {
     }
 
     render(hook) {
+        if (hook){
         hook.appendChild(this.effectSelection.element);
+        } else {
+            return this.effectSelection;
+        }
     }
 }
 
