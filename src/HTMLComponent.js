@@ -1,50 +1,58 @@
-const div = 'div';
-const h1 = 'h1';
-const h2 = 'h2';
-const h3 = 'h3';
-const span = 'span';
-const aside = 'aside';
+class content {
+    constructor(elementType, {klass = 'test' , id = "", content = ""}){
+        this.klass = klass ? klass :  "demo-section";
+        this.id = id ? id : "";
+        this.content = content ? content : "";
+        this.element = document.createElement(elementType);
+        this.element.classList.add(klass);
+        this.element.setAttribute('id', id);
+        this.element.append(content);
 
-const htmlElemStore = {
-    1: {
-        element: h1,
-        cssClass: 'test',
-        jsClass: 'js-test',
-        content: 'this is a test',
-        dataVar: 'h1-1',
-        children: null
-    },
-    2: {
-        
+        this.addClass = this.addClass.bind(this);
+        this.removeClass = this.removeClass.bind(this);
+        this.toggleClass = this.toggleClass.bind(this);
+        this.append = this.append.bind(this);
+        this.addAttr = this.addAttr.bind(this);
+        this.addData = this.addData.bind(this);
     }
-};
 
-class HTMLComponent {
-    constructor({element, cssClass, jsClass, content, dataVar, children}){
-        this.element = element;
-        this.cssClass = cssClass;
-        this.content = content ? content : '' ;
-        this.jsClass = jsClass;
-        this.dataVar = dataVar;
-        this.children = children;
+    addClass(klass){
+        this.element.classList.add(klass);
+    }
+
+    removeClass(klass){
+        this.element.classList.remove(klass);
+    }
+
+    toggleClass(klass, klass2){
+        if (this.element.classList.contains(klass)){
+            this.element.classList.remove(klass);
+            this.element.classList.add(klass2 ? klass2 : "");
+        } else {
+            this.element.classList.add(klass);
+            this.element.classList.remove(klass2);
+        }
+    }
+
+    append(innerContent){
+        // debugger
+        if (Array.isArray(innerContent)){
+            innerContent.forEach(inner => {
+                this.element.append(inner.constructor === content ? inner.element : inner);
+            });
+        } else {
+            this.element.append(innerContent.constructor === content ? innerContent.element : innerContent);
+        }
     }
     
-    render(){
-        const newElem = document.createElement(this.element);
-        if (typeof this.cssClass !== 'string') {
-            this.cssClass.forEach(klass => newElem.classList.add(klass));
-        } else {
-            newElem.classList.add(this.cssClass);
-        }
-        if (typeof this.jsClass !== 'string') {
-            this.jsClass.forEach(klass => newElem.classList.add(klass));
-        } else {
-            newElem.classList.add(this.jsClass);
-        }
-        newElem.innerHTML = this.content;
-        if (this.children) {this.children.forEach(child => {
-            newElem.append(new HTMLComponent(htmlElemStore[child]).render());
-        });}
-        return newElem;
+    addAttr(type, detail){
+        this.element.setAttribute( type, detail);
     }
-}
+
+    addData(type, detail){
+        this.addAttr(`data-${type}`, detail);
+    }
+
+} 
+
+export default content;

@@ -2,7 +2,7 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { toggleLoading } from '../index';
+// import { toggleLoading } from '../index';
 
 library.add(fas, far, fab); 
 
@@ -47,6 +47,7 @@ class MultiBoxMenu {
 
             Array.from(document.getElementsByClassName('effect-element-link')).forEach(eleLink => {
                     eleLink.addEventListener("click", (e) => {setTimeout(toggleMultiBoxMenu,100);});
+                    
             });
             
             Array.from(document.getElementsByClassName('effect-btn')).forEach(btn => btn.addEventListener("click", (e) => {
@@ -125,11 +126,11 @@ const menuOptions = [
         <a href="" class="contact-link">Get in touch now →</a>
     `,
     `   <ul>
-        <li><a href="#home" class="effect-element-link txt-tf-lower"><span class="ol-super-number">01</span> <span>home</span></a></li>
-        <li><a href="#about" class="effect-element-link txt-tf-lower"><span class="ol-super-number">02</span> <span>about</span></a></li>
-        <li><a href="#services" class="effect-element-link txt-tf-lower"><span class="ol-super-number">03</span> <span>services</span></a></li>
-        <li><a href="#products" class="effect-element-link txt-tf-lower"><span class="ol-super-number">04</span> <span>products</span></a></li>
-        <li><a href="#contact" class="effect-element-link txt-tf-lower"><span class="ol-super-number">05</span> <span>contact</span></a></li>
+        <li><a href="#home" class="effect-element-link  txt-tf-lower"><span class="ol-super-number">01</span> <span>home</span></a></li>
+        <li><a href="#about" class="effect-element-link  txt-tf-lower"><span class="ol-super-number">02</span> <span>about</span></a></li>
+        <li><a href="#services" class="effect-element-link  txt-tf-lower"><span class="ol-super-number">03</span> <span>services</span></a></li>
+        <li><a href="#products" class="effect-element-link  txt-tf-lower"><span class="ol-super-number">04</span> <span>products</span></a></li>
+        <li><a href="#contact" class="effect-element-link  txt-tf-lower"><span class="ol-super-number">05</span> <span>contact</span></a></li>
         </ul>
     `
 ];
