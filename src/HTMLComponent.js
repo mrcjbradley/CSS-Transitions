@@ -1,10 +1,10 @@
 class content {
     constructor(elementType, {klass = 'test' , id = "", content = ""}){
-        this.klass = klass ? klass :  "demo-section";
+        this.klass = klass ? klass : undefined;
         this.id = id ? id : "";
         this.content = content ? content : "";
         this.element = document.createElement(elementType);
-        this.element.classList.add(klass);
+        this.element.className = klass;
         this.element.setAttribute('id', id);
         this.element.append(content);
 

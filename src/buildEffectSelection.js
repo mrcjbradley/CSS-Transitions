@@ -1,10 +1,10 @@
 import content from './HTMLComponent';
+import MultiBoxMenu from './effects/MultiBoxMenu';
+import SlidingBoxMenu from './effects/SlidingBoxMenu';
 
 class buildEffectSelection {
     constructor(...effectNames) {
-        this.effectSelection = new content('div', {
-            klass: 'effect-selection'
-        });
+        this.effectSelection = new content('div', {klass: 'effect-selection' });
         this.effectLinks = {};
         effectNames.forEach(effect => {
             const newEffect = new content('a', {
@@ -25,7 +25,15 @@ class buildEffectSelection {
             toggleLoading();
             setTimeout(() => {
                 const menuType = effectLink.element.getAttribute("data-body-class");
-                document.querySelector('body').classList = menuType;
+                const datBody = document.querySelector('body');
+                datBody.classList = menuType;
+                if (menuType === "multi-box-menu-effect") {
+                    MultiBoxMenu.render(toggleLoading);
+                } else if (menuType === "sliding-box-menu-effect"){
+                    SlidingBoxMenu();
+                } else if (menuType === "collapsing-menu-effect"){
+                    SlidingBoxMenu();
+                }
                 document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
             }, 500);
             setTimeout(() => {

@@ -5,74 +5,78 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import content from '../HTMLComponent';
 import demoNav from '../demoNav';
 import buildEffectSelection from '../buildEffectSelection';
-
-// import { toggleLoading } from '../index';
+import buildDemoSections from '../buildDemoSections';
 
 library.add(fas, far, fab); 
 
 const blockQuote = new content('blockquote', {});
-blockQuote.append(new content('span', {
-    klass: "quoteIcon",
-    content: '"'
-}));
-blockQuote.append(new content('span', {
-    klass: "quote",
-    content: "This is a quote that will make you think..."
-}));
+    blockQuote.append(new content('span', { klass: "quoteIcon", content: '"'}));
+    blockQuote.append(new content('span', { klass: "quote", content: "This is a quote that will make you think..." }));
 
-const featuredLink = new content('a',{klass:'featured-link'});
-        featuredLink.addAttr('href', '#');
+const featuredLink = new content('a',{klass:'featured-link', content: "this is a featured link..."});
+    featuredLink.addAttr('href', '#');
 
 const innerLinksWrapper = document.createDocumentFragment();
 const innerNavLinks = new demoNav();
-innerLinksWrapper.appendChild(innerNavLinks.demoNavDiv.element);
-Object.values(innerNavLinks.navLinkElements).forEach((navL,idx) => { 
-	const numSpan = new content("span", {klass:"ol-super-number", content:`0${idx+1}`});
-	navL.addClass("effect-element-link");
-    navL.element.prepend(numSpan.element);
-    innerNavLinks.demoNavDiv.append(navL);
-});
+    innerLinksWrapper.appendChild(innerNavLinks.demoNavDiv.element);
+    Object.values(innerNavLinks.navLinkElements).forEach((navL,idx) => { 
+        const numSpan = new content("span", {klass:"ol-super-number", content:`0${idx+1}`});
+        navL.addClass("effect-element-link");
+        navL.element.prepend(numSpan.element);
+        innerNavLinks.demoNavDiv.append(navL);
+    });
 
 const effectLinks = new buildEffectSelection('collapsing menu', 'sliding box menu', 'multi box menu', 'hover reveal', 'slide show', 'card flip');
 effectLinks.effectSelection.removeClass('effect-selection');
 
-const menuOptions = [ effectLinks.render(), featuredLink, blockQuote, new content('a', {klass:"contact-link", content: "Get in touch now →" }), innerLinksWrapper ];
+const menuOptions = [ 
+    effectLinks.render(), 
+    featuredLink, 
+    blockQuote,
+    new content('a', {klass:"contact-link", content: "Get in touch now →" }), innerLinksWrapper ];
 
-const multiBoxContent = `
 
-    <nav class="Demo_MainNav">
-        <span class="DemoMenuToggle js-menu-toggle" > <span id="menuIcon"><i class="fas fa-box"> </i></span></span>
-        <ul class="MainNav_MenuList">
-            <li class="MainNav_MenuListItem js-menu-li"></li>
-            <li class="MainNav_MenuListItem js-menu-li bg-overlay-blue"></li>
-            <li class="MainNav_MenuListItem js-menu-li"></li>
-            <li class="MainNav_MenuListItem js-menu-li"></li>
-            <li class="MainNav_MenuListItem js-menu-li"></li>
-        </ul>
-    </nav>
-`;
+const DemoMenuToggle = new content('div', {klass: "DemoMenuToggle js-menu-toggle"});
+    const menuIcon = new content('span', {id:'menuIcon'});
+    menuIcon.element.innerHTML = `<i class="fas fa-box"> </i>`;
+    DemoMenuToggle.append(menuIcon); 
+
+const mainNavList = new content('ul', {klass: "MainNav_MenuList"});
+    for (let idx = 0; idx < 5; idx++) {
+        const klass = idx === 1 ? "MainNav_MenuListItem js-menu-li bg-overlay-blue" : "MainNav_MenuListItem js-menu-li";
+        const listItem = new content('li', {klass});
+        listItem.append(menuOptions[idx]);
+        mainNavList.append(listItem);
+    }
+    
+    
+    class buildMovingBackground {
+        constructor(klassList) {
+            this.movingBackground = new content('div', {
+                klass: 'bg'
+            });
+            this.movingBackground.addClass(klassList);
+        }
+        render(hook) {
+            hook.appendChild(this.movingBackground.element);
+        }
+    }
+    
+    const movingBG = new buildMovingBackground('bg-cosmic-city', 'bg-overlay-black');
+
+const multiBoxContent = new content('div', {klass: "Demo_MainNav"});
+        multiBoxContent.append(DemoMenuToggle);
+        multiBoxContent.append(mainNavList);
+
 
 class MultiBoxMenu {
     constructor(effectContent){
         this.effectContent = effectContent;
-        // this.populated = false;
     }
 
     activateListeners(toggleLoading){
         const menuLis = Array.from(document.getElementsByClassName('js-menu-li'));
-        const menuUl = menuLis[0].parentElement;
-        const toggleButton = document.getElementsByClassName('js-menu-toggle')[0];
         let openMenu = false;
-        
-        menuLis.forEach((li, idx) => {
-                if (typeof menuOptions[idx] === "string") {
-                    li.innerHTML = menuOptions[idx];
-                } else if (idx === 4) {
-                    li.append(menuOptions[idx]);
-                } else {
-                    li.append(menuOptions[idx].element);
-                }
-            });
 
         const toggleMultiBoxMenu = () => {
             for (let idx = 0; idx < menuLis.length; idx++) {
@@ -85,11 +89,11 @@ class MultiBoxMenu {
                         case 3:  element.style.height = '0%'; break;
                         case 4: element.style.width = '0%';  break;
                     }
-                    document.getElementById("menuIcon").innerHTML = `<i class="fas fa-box"> </i>`;
+                    menuIcon.element.innerHTML = `<i class="fas fa-box"> </i>`;
                     setTimeout(() => {
-                        Array.from(element.children).forEach(childEl => childEl.style.opacity = "0");}, 1000);
+                        Array.from(element.children).forEach(childEl => childEl.style.visibility = "hidden");}, 1000);
                 } else {
-                    Array.from(element.children).forEach(childEl => childEl.style.opacity = "1");
+                    Array.from(element.children).forEach(childEl => childEl.style.visibility = "visible");
                     switch(idx){
                         case 0: element.style.width = '25%'; break;
                         case 1: element.style.height = '60%'; break;
@@ -97,35 +101,21 @@ class MultiBoxMenu {
                         case 3: element.style.height = '40%'; break;
                         case 4: element.style.width = '50%'; break;
                     }
-                    document.getElementById("menuIcon").innerHTML = `<i class="fas fa-box-open"> </i>`;
+                    menuIcon.element.innerHTML = `<i class="fas fa-box-open"> </i>`;
                 }
             }
 
-            
-
             Array.from(document.getElementsByClassName('effect-element-link')).forEach(eleLink => {
                     eleLink.addEventListener("click", (e) => {setTimeout(toggleMultiBoxMenu,100);});
-                    
             });
             
-            Array.from(document.getElementsByClassName('effect-btn')).forEach(btn => btn.addEventListener("click", (e) => {
-                e.preventDefault();
-                toggleLoading();
-                setTimeout(() => {
-                    toggleMultiBoxMenu();
-                    document.querySelector('body').classList = btn.getAttribute("data-body-class");
-                }, 1000);
-                setTimeout(() => {
-                    toggleLoading();
-                }, 2000);
-            }));
+            effectLinks.activateListeners(toggleLoading);
 
             openMenu = !openMenu;
             dom.i2svg();
     };
-    
-    toggleButton.addEventListener("click", toggleMultiBoxMenu);
 
+    DemoMenuToggle.element.onclick = toggleMultiBoxMenu;
 
     dom.i2svg();
     this.activateBGMotion();
@@ -152,10 +142,20 @@ class MultiBoxMenu {
             moveBackground();
         });
     }
-    render(hook){
-        hook.innerHTML = this.effectContent;
+    render(toggleLoading){
+        const hook = document.getElementById('effect-render-container');
+        hook.innerHTML = '';
+        const sections = new buildDemoSections();
+        
+            hook.append(this.effectContent);
+            movingBG.render(hook);
+            this.activateListeners(toggleLoading);
+            sections.render(hook);
+           
     }
 }
 
+const startDemo = new content('div', {klass: 'demo'});
+startDemo.append(multiBoxContent);
 
-export default new MultiBoxMenu(multiBoxContent);
+export default new MultiBoxMenu(startDemo.element);
