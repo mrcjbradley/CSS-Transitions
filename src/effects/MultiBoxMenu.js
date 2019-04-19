@@ -72,6 +72,7 @@ const multiBoxContent = new content('div', {klass: "Demo_MainNav"});
 class MultiBoxMenu {
     constructor(effectContent){
         this.effectContent = effectContent;
+        this.activateBGMotion = this.activateBGMotion.bind(this);
     }
 
     activateListeners(toggleLoading){
@@ -118,10 +119,10 @@ class MultiBoxMenu {
     DemoMenuToggle.element.onclick = toggleMultiBoxMenu;
 
     dom.i2svg();
-    this.activateBGMotion();
+    this.activateBGMotion("on");
     }
 
-    activateBGMotion() {
+    activateBGMotion(active) {
         let lFollowX = 0;
         let lFollowY = 0;
         let x = 0;
@@ -134,18 +135,25 @@ class MultiBoxMenu {
             const translate = "translate(" + x + "px, " + y + "px) scale(1.1)";
             document.getElementsByClassName('bg')[0].style.transform = translate;
         };
-        window.addEventListener('mousemove', (e) => {
+
+        this.handleMouseMove = function(e) {
             const lMouseX = Math.max(-100, Math.min(100, window.innerWidth / 2 - e.clientX));
             const lMouseY = Math.max(-100, Math.min(100, window.innerHeight / 2 - e.clientY));
             lFollowX = (20 * lMouseX) / 150;
             lFollowY = (10 * lMouseY) / 150;
             moveBackground();
-        });
+        }
+        
+        if (active === "on"){
+            window.addEventListener('mousemove', this.handleMouseMove);
+        } else {
+            window.removeEventListener('mousemove', this.handleMouseMove);
+    }
     }
     render(toggleLoading){
         const hook = document.getElementById('effect-render-container');
         hook.innerHTML = '';
-        const sections = new buildDemoSections();
+        const sections = new buildDemoSections("Multi-Box Menu");
         
             hook.append(this.effectContent);
             movingBG.render(hook);

@@ -1,6 +1,7 @@
 import content from './HTMLComponent';
 import MultiBoxMenu from './effects/MultiBoxMenu';
 import SlidingBoxMenu from './effects/SlidingBoxMenu';
+import CollapsingMenu from './effects/CollapsingMenu';
 
 class buildEffectSelection {
     constructor(...effectNames) {
@@ -24,15 +25,18 @@ class buildEffectSelection {
             e.preventDefault();
             toggleLoading();
             setTimeout(() => {
+                window.location.hash = "";
                 const menuType = effectLink.element.getAttribute("data-body-class");
                 const datBody = document.querySelector('body');
                 datBody.classList = menuType;
                 if (menuType === "multi-box-menu-effect") {
                     MultiBoxMenu.render(toggleLoading);
                 } else if (menuType === "sliding-box-menu-effect"){
+                    MultiBoxMenu.activateBGMotion("off");
                     SlidingBoxMenu();
                 } else if (menuType === "collapsing-menu-effect"){
-                    SlidingBoxMenu();
+                    MultiBoxMenu.activateBGMotion("off");
+                    CollapsingMenu();
                 }
                 document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";
             }, 500);

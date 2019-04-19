@@ -4,7 +4,7 @@ import buildDemoSections from '../buildDemoSections';
 
 const SlidingBoxMenu = () => {
     const slidingDemoNav = new demoNav();
-    const sections = new buildDemoSections();
+    const sections = new buildDemoSections("Sliding-Box Menu");
     const hook = document.getElementById("effect-render-container");
     
     hook.innerHTML = '';
