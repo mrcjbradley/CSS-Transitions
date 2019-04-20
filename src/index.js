@@ -1,6 +1,8 @@
 import MultiBoxMenu from './effects/MultiBoxMenu';
 import BuildLoadingAnimation from './BuildLoadingAnimation';
 import buildEffectSelection from './buildEffectSelection';
+
+
 import './styles/app.scss';
 
 document.addEventListener("DOMContentLoaded", () => {

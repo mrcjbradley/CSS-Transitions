@@ -2,10 +2,10 @@ import content from './HTMLComponent';
 
 class demoNav {
     constructor(...navLinkNames){
-        this.navLinkNames =/* navLinkNames ? navLinkNames : */["home", "about", "products", "services", "contact"];
-        this.navLinkElements = {}
+        this.navLinkNames =/* navLinkNames ? navLinkNames : */["home", "html", "css", "javascript", "resources"];
+        this.navLinkElements = {};
         this.navLinkNames.forEach(navItem => {
-            const newNavLink = new content('a', {klass:"nav-link", id:`nav-link-${navItem}`, content: navItem});
+            const newNavLink = new content('a', {klass:"nav-link", id:`nav-link-${navItem}`, content: navItem === "home" ? "home" : `the ${navItem}`});
             newNavLink.addAttr('href', `#${navItem}`);
             this.navLinkElements[navItem] = newNavLink ;
         });
@@ -24,7 +24,8 @@ class demoNav {
         this.activateListeners = this.activateListeners.bind(this);
     }
     
-    toggleActive(section) {
+    toggleActive(sectionGiven) {
+        const section = sectionGiven.replace("the ", "");
         const lastActiveId = this.navLinkNames.indexOf(this.activeSection); 
         this.activeSection = section;
         const activeId = this.navLinkNames.indexOf(this.activeSection);
