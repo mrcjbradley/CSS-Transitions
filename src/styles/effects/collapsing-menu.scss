@@ -5,6 +5,8 @@
     .DemoMenuToggle {
         display: none;
     }
+    
+    
 
     .demo-super-nav {
         position: fixed;
@@ -13,6 +15,8 @@
         display: flex;
         justify-content: center;
         transition: background 500ms ease-in-out;
+        
+        /* Javascript will take care of toggling these two classes to ensure the navigation container contrasts the color of the current section */
 
         &.white {
             background: white;
@@ -43,6 +47,8 @@
             font-weight: 600;
         }
     }
+
+/* the current section nav link takes it's style cue from the class of its parent element  */
 
     .white .nav-link {
         color: darken(lightblue, 25%);
@@ -76,7 +82,7 @@
     }
 
     .demo-section {
-        height: calc(100vh - 3rem);
+        height: calc(100vh - 3rem); // change for snippet
         width: 100vw;
         display: flex;
         align-items: center;
