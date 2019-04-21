@@ -26,7 +26,8 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "sassify": "node-sass --watch src/styles -o src/css"
   },
   "dependencies": {
     "highlight.js": "^9.15.6",

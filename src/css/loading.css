@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  overflow-x: hidden;
+  font-family: sans-serif; }
+
+.loading-wrapper {
+  z-index: 1000;
+  position: fixed;
+  top: 10;
+  bottom: 0;
+  right: 0;
+  left: 0; }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0ccb1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  font-family: Arial;
+  letter-spacing: .2em;
+  font-size: 2em;
+  font-weight: 600;
+  transform: scale(1, 0);
+  transition: transform 250ms 250ms ease-in-out;
+  z-index: 1000; }
+  .loading-container.loading {
+    transform: scale(1, 1);
+    height: 100vh; }
+
+.loading-animation {
+  position: relative;
+  background: lightblue;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  opacity: 0;
+  animation: fade-out 500ms 00ms forwards; }
+  .loading .loading-animation {
+    animation: fade-in 500ms 500ms forwards; }
+  .loading-animation::before {
+    background-clip: text;
+    -webkit-background-clip: text;
+    content: attr(data-text);
+    position: absolute;
+    background-color: linear-gradient(90deg, blue, green);
+    color: rgba(0, 0, 0, 0.2);
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    transform-origin: left;
+    animation: not-loading 100ms 0ms ease-in-out forwards; }
+    .loading .loading-animation::before {
+      animation: loading 4000ms 500ms infinite ease-in-out alternate; }
+
+@keyframes loading {
+  0% {
+    width: 0%; }
+  50% {
+    width: 100%; }
+  100% {
+    width: 0%; } }
+
+@keyframes not-loading {
+  0% {
+    color: rgba(0, 0, 0, 0.2); }
+  100% {
+    color: baby-blue; } }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.effect-selection {
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+  z-index: 900;
+  width: 100%;
+  background: white; }
+
+.effect-btn {
+  display: block; }
+  .effect-btn:hover {
+    cursor: pointer;
+    text-shadow: 1px .5px grey; }
+
+.multi-box-menu-effect .demo-super-nav,
+.multi-box-menu-effect #burger-box {
+  display: none; }

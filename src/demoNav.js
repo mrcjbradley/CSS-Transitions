@@ -42,13 +42,23 @@ class demoNav {
             this.demoSuperNavDiv.element.classList.remove('open');
             this.burgerBoxMenu.element.innerText = "menu";
             this.openMenu = !this.openMenu;
+            // debugger
+            if (document.querySelector('body').classList.contains("sliding-box-menu-effect")){
+            setTimeout(() => {
+                this.demoSuperNavDiv.element.style.zIndex = "-1";
+            }, 1500);
+        }
         }));
 
         this.burgerBoxMenu.element.addEventListener("click", (e) => {
             if (this.openMenu) {
                 this.demoSuperNavDiv.element.classList.remove('open');
                 this.burgerBoxMenu.element.innerText = "menu";
+            if (document.querySelector('body').classList.contains("sliding-box-menu-effect")) {
+                setTimeout(() => {this.demoSuperNavDiv.element.style.zIndex = "-1";}, 1500);
+            }
             } else {
+                this.demoSuperNavDiv.element.style.zIndex = '100';
                 this.demoSuperNavDiv.element.classList.add('open');
                 this.burgerBoxMenu.element.innerText = "X";
             }
