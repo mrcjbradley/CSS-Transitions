@@ -1,0 +1,76 @@
+.collapsing-menu-effect {
+  /* the current section nav link takes it's style cue from the class of its parent element  */ }
+  .collapsing-menu-effect .DemoMenuToggle {
+    display: none; }
+  .collapsing-menu-effect .demo-super-nav {
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    transition: background 500ms ease-in-out;
+    /* Javascript will take care of toggling these two classes to ensure the navigation container contrasts the color of the current section */ }
+    .collapsing-menu-effect .demo-super-nav.white {
+      background: white; }
+    .collapsing-menu-effect .demo-super-nav.lightblue {
+      background: lightblue; }
+  .collapsing-menu-effect .demo-nav {
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%; }
+  .collapsing-menu-effect .nav-link {
+    padding: 2em;
+    font-weight: 200;
+    position: relative;
+    width: 20%;
+    transition: background 300ms 0ms ease-in-out, color 300ms ease-in-out;
+    text-align: center; }
+    .collapsing-menu-effect .nav-link:hover, .collapsing-menu-effect .nav-link.active {
+      font-weight: 600; }
+  .collapsing-menu-effect .white .nav-link {
+    color: #4baac8; }
+  .collapsing-menu-effect .white .nav-link:hover,
+  .collapsing-menu-effect .white .demo-nav .nav-link.active {
+    background: lightblue;
+    color: white; }
+  .collapsing-menu-effect .lightblue .nav-link {
+    color: white; }
+  .collapsing-menu-effect .lightblue .nav-link:hover,
+  .collapsing-menu-effect .lightblue .nav-link.active {
+    background: white;
+    color: lightblue; }
+  .collapsing-menu-effect .demo-div-container {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+    flex-direction: column; }
+  .collapsing-menu-effect #burger-box {
+    display: none; }
+
+@media only screen and (max-width: 800px) {
+  html {
+    scroll-behavior: auto; }
+  .collapsing-menu-effect #burger-box {
+    display: block;
+    position: fixed;
+    top: 1vmax;
+    right: 1vmax;
+    z-index: 100; }
+  .collapsing-menu-effect .demo-super-nav {
+    height: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 300ms ease-in-out; }
+    .collapsing-menu-effect .demo-super-nav.open {
+      transform: scale(1, 1);
+      height: 100vh; }
+  .collapsing-menu-effect .demo-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+  .collapsing-menu-effect .nav-link {
+    width: 100%; } }

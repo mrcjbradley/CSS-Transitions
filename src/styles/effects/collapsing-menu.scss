@@ -71,7 +71,6 @@
         color: lightblue;
     }
 
-
     // General demo-section styling
 
     .demo-div-container {
@@ -81,24 +80,25 @@
         flex-direction: column;
     }
 
-    .demo-section {
-        height: calc(100vh - 3rem); // change for snippet
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size:1em;
+
+    // .demo-section {
+    //     height: calc(100vh - 3rem); // change for snippet
+    //     width: 100vw;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     font-size:1em;
         // border: 5px solid red;
 
-        h1 {
-            font-size: 8vmax;
-        }
+    //     h1 {
+    //         font-size: 8vmax;
+    //     }
 
-        &:nth-child(odd) {
-            background: lightblue;
-        }
+    //     &:nth-child(odd) {
+    //         background: lightblue;
+    //     }
 
-    }
+    // }
 
     #burger-box {
         display: none;

@@ -2,9 +2,6 @@ import MultiBoxMenu from './effects/MultiBoxMenu';
 import BuildLoadingAnimation from './BuildLoadingAnimation';
 import buildEffectSelection from './buildEffectSelection';
 
-
-import './styles/app.scss';
-
 document.addEventListener("DOMContentLoaded", () => {
     const loader = new BuildLoadingAnimation();
     const effectMenu = new buildEffectSelection('collapsing menu', 'sliding box menu', 'multi box menu');
