@@ -100,12 +100,16 @@ body {
   position: fixed;
   left: 0px;
   bottom: 0;
-  padding: 1em;
+  padding: 0.5em;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   z-index: 900;
   width: 100%;
   background: white; }
+
+.profile-links {
+  font-size: 2em; }
 
 .effect-btn {
   display: block; }
