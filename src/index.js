@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     profileLinksDiv.innerHTML = `
         <a href="https://github.com/mrcjbradley/" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/collin-james-bradley-a87763a0/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://angel.co/collin-james-bradley?public_profile=1" target="_blank"><i class="fab fa-angellist"></i></a>
     `;
     dom.i2svg();
     const thatBod = document.querySelector('body');

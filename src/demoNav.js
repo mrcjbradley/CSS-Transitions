@@ -37,12 +37,40 @@ class demoNav {
     }
 
     activateListeners(){
+        let demoNavLinks = document.querySelectorAll(".nav-link");
+        
+        const handleScroll = (event) => {
+            if (document.querySelectorAll('.demo-section').length < 5) return event;
+            let fromTop = window.scrollY;
+
+            demoNavLinks.forEach(link => {
+                let section = document.querySelector(link.hash);
+
+                if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    link.classList.add("active");
+                    const lastActiveId = this.navLinkNames.indexOf(this.activeSection);
+                    this.activeSection = link.hash.slice(1);
+                    const activeId = this.navLinkNames.indexOf(this.activeSection);
+                    if (lastActiveId % 2 !== activeId % 2) {
+                        this.demoSuperNavDiv.toggleClass('white', 'lightblue');
+                    }
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScroll);
+
         Object.values(this.navLinkElements).forEach(navLink => navLink.element.addEventListener("click", (e) => {
+            window.removeEventListener('scroll', handleScroll);
             this.toggleActive(e.target.innerText);
             this.demoSuperNavDiv.element.classList.remove('open');
             this.burgerBoxMenu.element.innerText = "menu";
             this.openMenu = !this.openMenu;
-            // debugger
+           setTimeout(() => {
+               window.addEventListener('scroll', handleScroll);
+           }, 1500);
             if (document.querySelector('body').classList.contains("sliding-box-menu-effect")){
             setTimeout(() => {
                 this.demoSuperNavDiv.element.style.zIndex = "-1";

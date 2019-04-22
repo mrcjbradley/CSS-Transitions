@@ -22,6 +22,7 @@ class buildEffectSelection {
 
     activateListeners(toggleLoading) {
         Object.values(this.effectLinks).forEach(effectLink => effectLink.element.addEventListener("click", (e) => {
+            MultiBoxMenu.activateBGMotion("off");
             e.preventDefault();
             toggleLoading();
             setTimeout(() => {
@@ -32,10 +33,8 @@ class buildEffectSelection {
                 if (menuType === "multi-box-menu-effect") {
                     MultiBoxMenu.render(toggleLoading);
                 } else if (menuType === "sliding-box-menu-effect"){
-                    MultiBoxMenu.activateBGMotion("off");
                     SlidingBoxMenu();
                 } else if (menuType === "collapsing-menu-effect"){
-                    MultiBoxMenu.activateBGMotion("off");
                     CollapsingMenu();
                 }
                 document.querySelector('html').style.scrollBehavior = menuType === "collapsing-menu-effect" ? "smooth" : "auto";

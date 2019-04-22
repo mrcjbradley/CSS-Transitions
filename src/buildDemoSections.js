@@ -44,6 +44,9 @@ class buildDemoSections {
     render(hook) {
         this.demoSections.append([this.homeSection, this.htmlSection, this.cssSection, this.javascriptSection, this.resourcesSection]);
         hook.appendChild(this.demoSections.element);
+
+        
+
     }
 }
 
