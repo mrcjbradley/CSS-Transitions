@@ -200,4 +200,49 @@ $slidingMenuBase: 225ms;
         display:none;
     }
 
+
+#burger-box.bouncer::after {
+    content: '→';
+    width: 60px;
+    height: 60px;
+    // background-color: #adf;
+    // border: 2px solid hsla(204, 100%, 39%, 1);
+    // text-shadow: 0px 1px 5px 0px grey;
+    // -webkit-text-shadow: 0px 1px 5px 0px grey;
+    position: absolute;
+    top: 100%;
+    // border-radius: 100%;
+    right: 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    // transform: rotate(5deg) scale(.85);
+    // background-image: url(https://image.flaticon.com/icons/svg/271/271234.svg);
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    font-size: 2em;
+    transform-style: preserve-3d;
+    transform-origin: left bottom;
+
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(.9) rotate3d(0, 0, .5, -30deg);
+        top: 60%;
+        right: 70%;
+        text-shadow: 0px 0px 0px white;
+    }
+
+    100% {
+        transform: scale(1) rotate3d(0, 0, .5, -30deg);
+        top: 50%;
+        right: 40%;
+        text-shadow: -10px 10px 8px white;
+    }
+}
+
 }

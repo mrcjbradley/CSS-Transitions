@@ -271,6 +271,7 @@ const scriptCode = `
     Prism.highlightElement(cssSectionWrapper.children[1]);
     Prism.highlightElement(javascriptSectionWrapper.children[1]);
     
+    
         
 };
 

@@ -79,6 +79,7 @@ class demoNav {
         }));
 
         this.burgerBoxMenu.element.addEventListener("click", (e) => {
+            document.querySelector('#burger-box').classList.remove('bouncer');
             if (this.openMenu) {
                 this.demoSuperNavDiv.element.classList.remove('open');
                 this.burgerBoxMenu.element.innerText = "menu";
@@ -97,6 +98,7 @@ class demoNav {
     render(hook){
         hook.append(this.demoSuperNavDiv.element);
         hook.append(this.burgerBoxMenu.element);
+        document.querySelector('#burger-box').classList.add('bouncer');
     }
 
 }

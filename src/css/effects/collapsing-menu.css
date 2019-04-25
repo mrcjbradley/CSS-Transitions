@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .collapsing-menu-effect {
   /* the current section nav link takes it's style cue from the class of its parent element  */ }
   .collapsing-menu-effect .DemoMenuToggle {
@@ -73,4 +74,33 @@
     flex-direction: column;
     width: 100%; }
   .collapsing-menu-effect .nav-link {
-    width: 100%; } }
+    width: 100%; }
+  #burger-box.bouncer::after {
+    content: '→';
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 100%;
+    right: 110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    font-size: 2em;
+    transform-style: preserve-3d;
+    transform-origin: left bottom; }
+  @keyframes bounce {
+    0% {
+      transform: scale(0.9) rotate3d(0, 0, 0.5, -30deg);
+      top: 70%;
+      right: 10%;
+      text-shadow: 0px 0px 0px white; }
+    100% {
+      transform: scale(1) rotate3d(0, 0, 0.5, -30deg);
+      top: 60%;
+      right: -20%;
+      text-shadow: -10px 10px 8px white; } } }

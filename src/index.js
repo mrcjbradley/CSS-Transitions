@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loader.toggleLoading();
     setTimeout(() => {
         MultiBoxMenu.render(loader.toggleLoading);
+        
         setTimeout(loader.toggleLoading, 500);
     }, 500);
 });

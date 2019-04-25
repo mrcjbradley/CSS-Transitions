@@ -388,8 +388,9 @@ class MultiBoxMenu {
     activateListeners(toggleLoading){
         const menuLis = Array.from(document.getElementsByClassName('js-menu-li'));
         let openMenu = false;
-
-        const toggleMultiBoxMenu = () => {
+        const toggleMultiBoxMenu = (e) => {
+            document.querySelector('.js-menu-toggle').classList.remove('bouncer');
+            
             for (let idx = 0; idx < menuLis.length; idx++) {
                 const element = menuLis[idx];
                 if (openMenu){
@@ -467,6 +468,7 @@ class MultiBoxMenu {
         const sections = new buildDemoSections("Multi-Box Menu");
         
         hook.append(this.effectContent);
+        document.querySelector('.js-menu-toggle').classList.add('bouncer');
         movingBG.render(hook);
         this.activateListeners(toggleLoading);
         sections.render(hook);

@@ -25,7 +25,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --watch",
     "dev": "webpack-dev-server --hot --inline",
     "sassify": "node-sass --watch src/styles -o src/css"
   },

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://use.typekit.net/uzj7brn.css");
 .bg-cosmic-castle {
   background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg"); }
@@ -306,3 +307,34 @@
 
 .sliding-box-menu-effect .DemoMenuToggle {
   display: none; }
+
+.sliding-box-menu-effect #burger-box.bouncer::after {
+  content: '→';
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 100%;
+  right: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  font-size: 2em;
+  transform-style: preserve-3d;
+  transform-origin: left bottom; }
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.9) rotate3d(0, 0, 0.5, -30deg);
+    top: 60%;
+    right: 70%;
+    text-shadow: 0px 0px 0px white; }
+  100% {
+    transform: scale(1) rotate3d(0, 0, 0.5, -30deg);
+    top: 50%;
+    right: 40%;
+    text-shadow: -10px 10px 8px white; } }
