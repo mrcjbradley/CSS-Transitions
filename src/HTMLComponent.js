@@ -1,5 +1,5 @@
 class content {
-    constructor(elementType, {klass = 'test' , id = "", content = ""}){
+    constructor( elementType, { klass = "" , id = "", content = "" }){
         this.klass = klass ? klass : undefined;
         this.id = id ? id : "";
         this.content = content ? content : "";
@@ -7,22 +7,16 @@ class content {
         this.element.className = klass;
         this.element.setAttribute('id', id);
         this.element.append(content);
-
-        this.addClass = this.addClass.bind(this);
-        this.removeClass = this.removeClass.bind(this);
-        this.toggleClass = this.toggleClass.bind(this);
-        this.append = this.append.bind(this);
-        this.addAttr = this.addAttr.bind(this);
-        this.addData = this.addData.bind(this);
     }
 
     addClass(...klassList){
-        // debugger
         klassList.forEach(klass => this.element.classList.add(klass));
+        return this;
     }
 
     removeClass(klass){
         this.element.classList.remove(klass);
+        return this;
     }
 
     toggleClass(klass, klass2){
@@ -33,10 +27,10 @@ class content {
             this.element.classList.add(klass);
             this.element.classList.remove(klass2);
         }
+        return this;
     }
 
     append(innerContent){
-        // debugger
         if (Array.isArray(innerContent)){
             innerContent.forEach(inner => {
                 this.element.append(inner.constructor === content ? inner.element : inner);
@@ -44,14 +38,17 @@ class content {
         } else {
             this.element.append(innerContent.constructor === content ? innerContent.element : innerContent);
         }
+        return this;
     }
     
     addAttr(type, detail){
         this.element.setAttribute( type, detail);
+        return this;
     }
 
     addData(type, detail){
         this.addAttr(`data-${type}`, detail);
+        return this;
     }
 
 } 
