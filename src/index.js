@@ -5,11 +5,10 @@ import buildEffectSelection from './buildEffectSelection';
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
-library.add(fab); //, far, fas); 
+library.add(fab); 
 
 document.addEventListener("DOMContentLoaded", () => {
     const loader = new BuildLoadingAnimation();
-    // const effectMenu = new buildEffectSelection('collapsing menu', 'sliding box menu', 'multi box menu');
     // const profileLinksDiv = document.createElement('div');
     // profileLinksDiv.className = "profile-links";
     // effectMenu.effectSelection.append(profileLinksDiv);
@@ -19,14 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     //     <a href="https://angel.co/collin-james-bradley?public_profile=1" target="_blank"><i class="fab fa-angellist"></i></a>
     // `;
     // dom.i2svg();
-    // const thatBod = document.body;
-    loader.render(document.body);
-    //     effectMenu.render(thatBod);
-    //     effectMenu.activateListeners(loader.toggleLoading);
-
-    // thatBod.insertAdjacentHTML("beforeend", `<div id="effect-render-container"></div>`);
-
+    loader.render();
+    
+    document.body.insertAdjacentHTML("beforeend", `<div id="effect-render-container"></div>`);
+    
     loader.toggleLoading();
+    buildEffectSelection(loader.toggleLoading);
     setTimeout(() => {
         // MultiBoxMenu.render(loader.toggleLoading);
         

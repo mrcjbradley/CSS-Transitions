@@ -36,8 +36,8 @@ class BuildLoadingAnimation {
         this.loading = !this.loading;
     }
 
-    render(parent){
-        parent.append(this.loadingWrapper.element);
+    render(){
+        document.body.append(this.loadingContainer.element);
     }
 
 }
