@@ -18,13 +18,21 @@ module.exports = {
             //     use: {
             //         loader: 'babel-loader',
             //         options: {
-            //             presets: ['es2015']
+            //             presets: ['env']
             //         }
             //     }
             // },
             {
                 test: /\.scss/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
                 
             },
             {
