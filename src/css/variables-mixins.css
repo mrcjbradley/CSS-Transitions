@@ -3,7 +3,7 @@
   background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg"); }
 
 .bg-cosmic-city {
-  background-image: url("https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/architecture-buildings-city.jpg?raw=true"); }
+  background-image: url("../images/architecture-buildings-city.jpg"); }
 
 .bg-cosmic-cave {
   background-image: url("https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/arid-canyon-cave.jpg?raw=true"); }
@@ -21,7 +21,7 @@
   background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/bavaria-cosmos-galaxy.jpg"); }
 
 .bg-cosmic-galaxy-dark {
-  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/black-wallpaper-dark-galaxy.jpg"); }
+  background-image: url("../images/black-wallpaper-dark-galaxy.jpg"); }
 
 .bg-cosmic-dusk {
   background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-dusk.jpg"); }

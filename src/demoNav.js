@@ -1,21 +1,37 @@
 import content from './HTMLComponent';
 
 class demoNav {
-    constructor(...navLinkNames){
-        this.navLinkNames =/* navLinkNames ? navLinkNames : */["home", "html", "css", "javascript", "resources"];
-        this.navLinkElements = {};
-        this.navLinkNames.forEach(navItem => {
-            const newNavLink = new content('a', {klass:"nav-link", id:`nav-link-${navItem}`, content: navItem === "home" ? "home" : `the ${navItem}`});
-            newNavLink.addAttr('href', `#${navItem}`);
-            this.navLinkElements[navItem] = newNavLink ;
+    constructor(){
+        this.navLinkNames = [
+            "home", 
+            "html", 
+            "css", 
+            "javascript", 
+            "resources"
+        ];
+        this.navLinkElements = this.navLinkNames.map( navItem => (
+            new content( 'a', {
+                klass:"nav-link", 
+                id:`nav-link-${navItem}`, 
+                content: navItem === "home" ? "home" : `the ${navItem}`
+            })
+            .addAttr('href', `#${navItem}`)));
+
+        this.demoNavDiv = new content('div', {
+            klass: 'demo-nav'
+        })
+        .append(this.navLinkElements);
+
+        this.demoSuperNavDiv = new content('div', {
+            klass: 'demo-super-nav', 
+            content: this.demoNavDiv.element
+        })
+        .addClass('white');
+
+        this.burgerBoxMenu = new content('div', {
+            id:'burger-box', 
+            content: 'menu'
         });
-        this.demoNavDiv = new content('div', {klass: 'demo-nav'});
-        this.demoNavDiv.append(Object.values(this.navLinkElements));
-
-        this.demoSuperNavDiv = new content('div', {klass: 'demo-super-nav', content: this.demoNavDiv.element});
-        this.demoSuperNavDiv.addClass('white');
-
-        this.burgerBoxMenu = new content('div', {id:'burger-box', content: 'menu'});
 
         this.activeSection = "home";
         this.toggleActive = this.toggleActive.bind(this);
@@ -32,8 +48,11 @@ class demoNav {
         if (lastActiveId % 2 !== activeId % 2) {
             this.demoSuperNavDiv.toggleClass('white', 'lightblue');
         }
-        Object.values(this.navLinkElements).forEach(el => el.element.classList.remove('active'));
-        this.navLinkElements[this.activeSection].element.classList.add('active');
+        this.navLinkElements.forEach( el => {
+            el.element.classList.remove('active');
+            if (el.id === `nav-links-${section}`) {
+                this.navLinkElements[this.activeSection].element.classList.add('active');
+        }});
     }
 
     activateListeners(){
@@ -62,7 +81,7 @@ class demoNav {
 
         window.addEventListener("scroll", handleScroll);
 
-        Object.values(this.navLinkElements).forEach(navLink => navLink.element.addEventListener("click", (e) => {
+        this.navLinkElements.forEach(navLink => navLink.element.addEventListener("click", (e) => {
             window.removeEventListener('scroll', handleScroll);
             this.toggleActive(e.target.innerText);
             this.demoSuperNavDiv.element.classList.remove('open');
