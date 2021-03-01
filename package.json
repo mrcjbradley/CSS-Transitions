@@ -33,7 +33,7 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "highlight.js": "^9.15.6",
-    "prismjs": "^1.16.0",
+    "prismjs": "^1.23.0",
     "save": "^2.4.0"
   }
 }
