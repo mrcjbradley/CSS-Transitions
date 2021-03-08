@@ -4,7 +4,7 @@ import SlidingBoxMenu from './effects/SlidingBoxMenu';
 import CollapsingMenu from './effects/CollapsingMenu';
 
 
-function buildEffectSelection (toggleLoading) {
+function buildEffectSelection (toggleLoading, appendToBody = true) {
 
         const EFFECT_NAMES = [
             'collapsing menu', 
@@ -49,7 +49,10 @@ function buildEffectSelection (toggleLoading) {
             }, 2000);
         }));
 
-       document.body.append(effectSelection.element);
+       appendToBody && document.body.append(effectSelection.element);
+       return effectSelection.element;
+
+       
 }
 
 export default buildEffectSelection;

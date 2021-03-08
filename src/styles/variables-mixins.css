@@ -1,0 +1,209 @@
+@import url("https://use.typekit.net/uzj7brn.css");
+.bg-cosmic-castle {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg");
+}
+
+.bg-cosmic-city {
+  background-image: url("../images/architecture-buildings-city.jpg");
+}
+
+.bg-cosmic-cave {
+  background-image: url("https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/arid-canyon-cave.jpg?raw=true");
+}
+
+.bg-astronaut {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronaut-astronomy-cosmos.jpg");
+}
+
+.bg-cosmic-colors {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronomy-color-cosmos.jpg");
+}
+
+.bg-cosmic-aurora {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/aurora-aurora-borealis-constellation.jpg");
+}
+
+.bg-cosmic-galaxy {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/bavaria-cosmos-galaxy.jpg");
+}
+
+.bg-cosmic-galaxy-dark {
+  background-image: url("../images/black-wallpaper-dark-galaxy.jpg");
+}
+
+.bg-cosmic-dusk {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-dusk.jpg");
+}
+
+.bg-cosmic-evening {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-evening.jpg");
+}
+
+.fs-2 {
+  font-size: 2em;
+}
+
+.fs-2-5 {
+  font-size: 2.5em;
+}
+
+.fs-1 {
+  font-size: 1em;
+}
+
+.fs-0-5 {
+  font-size: 0.5em;
+}
+
+.fs-0-75 {
+  font-size: 0.75em;
+}
+
+.fs-1-5 {
+  font-size: 1.5em;
+}
+
+.fs-3 {
+  font-size: 3em;
+}
+
+.fs-3-5 {
+  font-size: 3.5em;
+}
+
+.fs-4 {
+  font-size: 4em;
+}
+
+.fs-4-5 {
+  font-size: 4.5em;
+}
+
+.fs-5 {
+  font-size: 5em;
+}
+
+.fs-5-5 {
+  font-size: 5.5em;
+}
+
+.fs-6 {
+  font-size: 6em;
+}
+
+.fs-6-5 {
+  font-size: 6.5em;
+}
+
+.fs-7 {
+  font-size: 7em;
+}
+
+.fs-7-5 {
+  font-size: 7.5em;
+}
+
+.fs-8 {
+  font-size: 8em;
+}
+
+.fs-8-5 {
+  font-size: 8.5em;
+}
+
+.fs-9 {
+  font-size: 9em;
+}
+
+.fs-9-5 {
+  font-size: 9.5em;
+}
+
+.ls-1 {
+  letter-spacing: 0.1em;
+}
+
+.ls-2 {
+  letter-spacing: 0.2em;
+}
+
+.ls-3 {
+  letter-spacing: 0.3em;
+}
+
+.ls-4 {
+  letter-spacing: 0.4em;
+}
+
+.ls-5 {
+  letter-spacing: 0.5em;
+}
+
+.ls-6 {
+  letter-spacing: 0.6em;
+}
+
+.ls-7 {
+  letter-spacing: 0.7em;
+}
+
+.ls-8 {
+  letter-spacing: 0.8em;
+}
+
+.ls-9 {
+  letter-spacing: 0.9em;
+}
+
+.ls-10 {
+  letter-spacing: 1.0em;
+}
+
+.ls-11 {
+  letter-spacing: 1.1em;
+}
+
+.ls-12 {
+  letter-spacing: 1.2em;
+}
+
+.ls-13 {
+  letter-spacing: 1.3em;
+}
+
+.ls-14 {
+  letter-spacing: 1.4em;
+}
+
+.ls-15 {
+  letter-spacing: 1.5em;
+}
+
+.ls-16 {
+  letter-spacing: 1.6em;
+}
+
+.ls-17 {
+  letter-spacing: 1.7em;
+}
+
+.ls-18 {
+  letter-spacing: 1.8em;
+}
+
+.ls-19 {
+  letter-spacing: 1.9em;
+}
+
+.ls-20 {
+  letter-spacing: 2.0em;
+}
+
+.txt-tf-upper {
+  text-transform: uppercase;
+}
+
+.txt-tf-lower {
+  text-transform: lowercase;
+}
+/*# sourceMappingURL=variables-mixins.css.map */

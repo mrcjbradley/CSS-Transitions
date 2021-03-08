@@ -1,0 +1,442 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/uzj7brn.css");
+.bg-cosmic-castle {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg");
+}
+
+.bg-cosmic-city {
+  background-image: url("../images/architecture-buildings-city.jpg");
+}
+
+.bg-cosmic-cave {
+  background-image: url("https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/arid-canyon-cave.jpg?raw=true");
+}
+
+.bg-astronaut {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronaut-astronomy-cosmos.jpg");
+}
+
+.bg-cosmic-colors {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronomy-color-cosmos.jpg");
+}
+
+.bg-cosmic-aurora {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/aurora-aurora-borealis-constellation.jpg");
+}
+
+.bg-cosmic-galaxy {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/bavaria-cosmos-galaxy.jpg");
+}
+
+.bg-cosmic-galaxy-dark {
+  background-image: url("../images/black-wallpaper-dark-galaxy.jpg");
+}
+
+.bg-cosmic-dusk {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-dusk.jpg");
+}
+
+.bg-cosmic-evening {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-evening.jpg");
+}
+
+.fs-2 {
+  font-size: 2em;
+}
+
+.fs-2-5 {
+  font-size: 2.5em;
+}
+
+.fs-1 {
+  font-size: 1em;
+}
+
+.fs-0-5 {
+  font-size: 0.5em;
+}
+
+.fs-0-75 {
+  font-size: 0.75em;
+}
+
+.fs-1-5 {
+  font-size: 1.5em;
+}
+
+.fs-3 {
+  font-size: 3em;
+}
+
+.fs-3-5 {
+  font-size: 3.5em;
+}
+
+.fs-4 {
+  font-size: 4em;
+}
+
+.fs-4-5 {
+  font-size: 4.5em;
+}
+
+.fs-5 {
+  font-size: 5em;
+}
+
+.fs-5-5 {
+  font-size: 5.5em;
+}
+
+.fs-6 {
+  font-size: 6em;
+}
+
+.fs-6-5 {
+  font-size: 6.5em;
+}
+
+.fs-7 {
+  font-size: 7em;
+}
+
+.fs-7-5 {
+  font-size: 7.5em;
+}
+
+.fs-8 {
+  font-size: 8em;
+}
+
+.fs-8-5 {
+  font-size: 8.5em;
+}
+
+.fs-9 {
+  font-size: 9em;
+}
+
+.fs-9-5 {
+  font-size: 9.5em;
+}
+
+.ls-1 {
+  letter-spacing: 0.1em;
+}
+
+.ls-2 {
+  letter-spacing: 0.2em;
+}
+
+.ls-3 {
+  letter-spacing: 0.3em;
+}
+
+.ls-4 {
+  letter-spacing: 0.4em;
+}
+
+.ls-5 {
+  letter-spacing: 0.5em;
+}
+
+.ls-6 {
+  letter-spacing: 0.6em;
+}
+
+.ls-7 {
+  letter-spacing: 0.7em;
+}
+
+.ls-8 {
+  letter-spacing: 0.8em;
+}
+
+.ls-9 {
+  letter-spacing: 0.9em;
+}
+
+.ls-10 {
+  letter-spacing: 1.0em;
+}
+
+.ls-11 {
+  letter-spacing: 1.1em;
+}
+
+.ls-12 {
+  letter-spacing: 1.2em;
+}
+
+.ls-13 {
+  letter-spacing: 1.3em;
+}
+
+.ls-14 {
+  letter-spacing: 1.4em;
+}
+
+.ls-15 {
+  letter-spacing: 1.5em;
+}
+
+.ls-16 {
+  letter-spacing: 1.6em;
+}
+
+.ls-17 {
+  letter-spacing: 1.7em;
+}
+
+.ls-18 {
+  letter-spacing: 1.8em;
+}
+
+.ls-19 {
+  letter-spacing: 1.9em;
+}
+
+.ls-20 {
+  letter-spacing: 2.0em;
+}
+
+.txt-tf-upper {
+  text-transform: uppercase;
+}
+
+.txt-tf-lower {
+  text-transform: lowercase;
+}
+
+.sliding-box-menu-effect .demo-super-nav {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sliding-box-menu-effect .nav-link {
+  position: absolute;
+  display: block;
+  top: 0;
+  font-family: boucherie-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: 225ms ease-in-out both;
+}
+
+.sliding-box-menu-effect .nav-link:first-child {
+  background: blue;
+  right: 150px;
+  top: 0%;
+  width: calc(35% - 150px);
+  height: 150px;
+  animation-delay: 1125ms;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(2) {
+  background: red;
+  top: 150px;
+  right: 0;
+  width: 35%;
+  height: calc(65vh - 150px);
+  animation-delay: 900ms;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(3) {
+  background: orange;
+  right: 35%;
+  height: 65%;
+  width: 40%;
+  animation-delay: 675ms;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(4) {
+  background: pink;
+  top: 65%;
+  right: 0%;
+  width: 75%;
+  height: 35%;
+  animation-delay: 450ms;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(5) {
+  background: green;
+  right: 75%;
+  height: 100%;
+  width: 25%;
+  animation-delay: 500ms;
+  animation-delay: 225ms;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(odd) {
+  transform: scale(0, 1);
+  transform-origin: right;
+}
+
+.sliding-box-menu-effect .nav-link:nth-child(even) {
+  transform: scale(1, 0);
+  transform-origin: top;
+}
+
+.sliding-box-menu-effect .nav-link::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 0.5em);
+  transform: scale(0, 1);
+  width: 70%;
+  border-top: 2px solid white;
+  transition: all 300ms;
+}
+
+.sliding-box-menu-effect .demo-super-nav .nav-link:hover,
+.sliding-box-menu-effect .demo-super-nav .nav-link.active {
+  font-size: 3em;
+}
+
+.sliding-box-menu-effect .demo-super-nav .nav-link:hover::after,
+.sliding-box-menu-effect .demo-super-nav .nav-link.active::after {
+  transform: scale(1, 1);
+}
+
+.sliding-box-menu-effect .demo-super-nav .nav-link:nth-child(odd) {
+  animation-name: fold-odd;
+}
+
+.sliding-box-menu-effect .demo-super-nav .nav-link:nth-child(even) {
+  animation-name: fold-even;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(odd) {
+  animation-name: unfold-odd;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(even) {
+  animation-name: unfold-even;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:first-child {
+  animation-delay: 225ms;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(2) {
+  animation-delay: 450ms;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(3) {
+  animation-delay: 675ms;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(4) {
+  animation-delay: 900ms;
+}
+
+.sliding-box-menu-effect .demo-super-nav.open .nav-link:nth-child(5) {
+  animation-delay: 1125ms;
+}
+
+@keyframes unfold-odd {
+  0% {
+    transform: scale(0, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes unfold-even {
+  0% {
+    transform: scale(1, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fold-odd {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 1);
+  }
+}
+
+@keyframes fold-even {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 0);
+  }
+}
+
+.sliding-box-menu-effect .demo-div-container {
+  display: flex;
+  height: 100%;
+  width: 100vw;
+  flex-direction: column;
+}
+
+.sliding-box-menu-effect #burger-box {
+  position: fixed;
+  background: brown;
+  top: 0;
+  right: 0;
+  height: 150px;
+  width: 150px;
+  z-index: 100;
+  font-family: boucherie-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.sliding-box-menu-effect .DemoMenuToggle {
+  display: none;
+}
+
+.sliding-box-menu-effect #burger-box.bouncer::after {
+  content: '→';
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 100%;
+  right: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  font-size: 2em;
+  transform-style: preserve-3d;
+  transform-origin: left bottom;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.9) rotate3d(0, 0, 0.5, -30deg);
+    top: 60%;
+    right: 70%;
+    text-shadow: 0px 0px 0px white;
+  }
+  100% {
+    transform: scale(1) rotate3d(0, 0, 0.5, -30deg);
+    top: 50%;
+    right: 40%;
+    text-shadow: -10px 10px 8px white;
+  }
+}
+/*# sourceMappingURL=sliding-menu.css.map */

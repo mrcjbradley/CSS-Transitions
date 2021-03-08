@@ -1,0 +1,441 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/uzj7brn.css");
+.bg-cosmic-castle {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/architecture-building-cosmos.jpg");
+}
+
+.bg-cosmic-city {
+  background-image: url("../images/architecture-buildings-city.jpg");
+}
+
+.bg-cosmic-cave {
+  background-image: url("https://github.com/mrcjbradley/CSS-Transitions/blob/master/src/images/arid-canyon-cave.jpg?raw=true");
+}
+
+.bg-astronaut {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronaut-astronomy-cosmos.jpg");
+}
+
+.bg-cosmic-colors {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/astronomy-color-cosmos.jpg");
+}
+
+.bg-cosmic-aurora {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/aurora-aurora-borealis-constellation.jpg");
+}
+
+.bg-cosmic-galaxy {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/bavaria-cosmos-galaxy.jpg");
+}
+
+.bg-cosmic-galaxy-dark {
+  background-image: url("../images/black-wallpaper-dark-galaxy.jpg");
+}
+
+.bg-cosmic-dusk {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-dusk.jpg");
+}
+
+.bg-cosmic-evening {
+  background-image: url("https://raw.githubusercontent.com/mrcjbradley/CSS-Transitions/master/src/images/cosmos-dark-evening.jpg");
+}
+
+.fs-2 {
+  font-size: 2em;
+}
+
+.fs-2-5 {
+  font-size: 2.5em;
+}
+
+.fs-1 {
+  font-size: 1em;
+}
+
+.fs-0-5 {
+  font-size: 0.5em;
+}
+
+.fs-0-75 {
+  font-size: 0.75em;
+}
+
+.fs-1-5 {
+  font-size: 1.5em;
+}
+
+.fs-3 {
+  font-size: 3em;
+}
+
+.fs-3-5 {
+  font-size: 3.5em;
+}
+
+.fs-4 {
+  font-size: 4em;
+}
+
+.fs-4-5 {
+  font-size: 4.5em;
+}
+
+.fs-5 {
+  font-size: 5em;
+}
+
+.fs-5-5 {
+  font-size: 5.5em;
+}
+
+.fs-6 {
+  font-size: 6em;
+}
+
+.fs-6-5 {
+  font-size: 6.5em;
+}
+
+.fs-7 {
+  font-size: 7em;
+}
+
+.fs-7-5 {
+  font-size: 7.5em;
+}
+
+.fs-8 {
+  font-size: 8em;
+}
+
+.fs-8-5 {
+  font-size: 8.5em;
+}
+
+.fs-9 {
+  font-size: 9em;
+}
+
+.fs-9-5 {
+  font-size: 9.5em;
+}
+
+.ls-1 {
+  letter-spacing: 0.1em;
+}
+
+.ls-2 {
+  letter-spacing: 0.2em;
+}
+
+.ls-3 {
+  letter-spacing: 0.3em;
+}
+
+.ls-4 {
+  letter-spacing: 0.4em;
+}
+
+.ls-5 {
+  letter-spacing: 0.5em;
+}
+
+.ls-6 {
+  letter-spacing: 0.6em;
+}
+
+.ls-7 {
+  letter-spacing: 0.7em;
+}
+
+.ls-8 {
+  letter-spacing: 0.8em;
+}
+
+.ls-9 {
+  letter-spacing: 0.9em;
+}
+
+.ls-10 {
+  letter-spacing: 1.0em;
+}
+
+.ls-11 {
+  letter-spacing: 1.1em;
+}
+
+.ls-12 {
+  letter-spacing: 1.2em;
+}
+
+.ls-13 {
+  letter-spacing: 1.3em;
+}
+
+.ls-14 {
+  letter-spacing: 1.4em;
+}
+
+.ls-15 {
+  letter-spacing: 1.5em;
+}
+
+.ls-16 {
+  letter-spacing: 1.6em;
+}
+
+.ls-17 {
+  letter-spacing: 1.7em;
+}
+
+.ls-18 {
+  letter-spacing: 1.8em;
+}
+
+.ls-19 {
+  letter-spacing: 1.9em;
+}
+
+.ls-20 {
+  letter-spacing: 2.0em;
+}
+
+.txt-tf-upper {
+  text-transform: uppercase;
+}
+
+.txt-tf-lower {
+  text-transform: lowercase;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.bg {
+  width: 100%;
+  height: calc(100vh - 3em);
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: scale(1.1);
+}
+
+.bg-overlay-black {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+}
+
+.bg-overlay-blue {
+  background-color: rgba(0, 30, 255, 0.3);
+  background-blend-mode: overlay;
+}
+
+#demo {
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 3em);
+  overflow: hidden;
+}
+
+.MainNav_MenuListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: soleil, sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+.MainNav_MenuListItem .demo-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 45%;
+  justify-content: space-evenly;
+}
+
+.MainNav_MenuListItem blockquote {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3vmax;
+  position: relative;
+}
+
+.MainNav_MenuListItem blockquote .quote {
+  display: flex;
+  position: relative;
+  z-index: 1000;
+  margin: 0 auto;
+  padding: 1.5vmax;
+  overflow: hidden;
+}
+
+.quoteIcon {
+  font-size: 5em;
+  z-index: 999;
+  color: #0033ff;
+  position: absolute;
+  opacity: 0.7;
+  z-index: 1;
+  top: -.15em;
+  left: 0em;
+}
+
+.featured-link {
+  visibility: hidden;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  line-height: 1.2;
+  opacity: 0;
+  transition-property: visibility, opacity;
+  transition: 0.45s ease-in-out 0.1s;
+}
+
+li:hover > .featured-link {
+  visibility: visible;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.contact-link {
+  font-size: 0.95em;
+}
+
+.ol-super-number {
+  font-size: 0.4em;
+  font-weight: 100;
+  vertical-align: super;
+  color: #0033ff;
+}
+
+.effect-element-link {
+  position: relative;
+  font-size: 3.5vmax;
+}
+
+.effect-element-link::after {
+  content: '';
+  width: 100%;
+  top: 60%;
+  height: 6px;
+  position: absolute;
+  right: -15px;
+  background: blue;
+  opacity: 0;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: left;
+}
+
+.effect-element-link:hover {
+  color: #0033ff;
+}
+
+.effect-element-link:hover::after {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.DemoMain {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out;
+  transition: visibility 0.7s 1s ease-in-out;
+}
+
+.DemoMain_Title {
+  font-family: boucherie-block, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 8.5em;
+  color: #0033ff;
+  letter-spacing: .1em;
+  opacity: .5;
+}
+
+.DemoMain_Subtitle {
+  font-family: boucherie-flared, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5em;
+  color: white;
+  text-transform: lowercase;
+  letter-spacing: 0.15em;
+  opacity: 0.45;
+}
+
+.effect-link {
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  display: block;
+  margin: .5vmin;
+}
+
+.efftect-link-lable {
+  font-size: 1.2em;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  display: block;
+  margin: 3vmin;
+}
+
+.multi-box-menu-effect .demo-section:first-child {
+  background: none;
+  font-family: boucherie-block, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 8.5em;
+  color: #007bff;
+  letter-spacing: .1em;
+}
+
+.DemoMenuToggle.js-menu-toggle.bouncer::after {
+  content: '→';
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 100%;
+  right: 110%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  font-size: 2em;
+  transform-style: preserve-3d;
+  transform-origin: left bottom;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.9) rotate3d(0, 0, 0.5, -30deg);
+    top: 80%;
+    right: 70%;
+    text-shadow: 0px 0px 0px white;
+  }
+  100% {
+    transform: scale(1) rotate3d(0, 0, 0.5, -30deg);
+    top: 70%;
+    right: 40%;
+    text-shadow: -10px 10px 8px white;
+  }
+}
+/*# sourceMappingURL=multi-box.css.map */

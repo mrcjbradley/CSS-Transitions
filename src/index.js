@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loader.toggleLoading();
     buildEffectSelection(loader.toggleLoading);
     setTimeout(() => {
-        // MultiBoxMenu.render(loader.toggleLoading);
+        // const startDemo = new content('div', {klass: 'demo'});
+        MultiBoxMenu.render(loader.toggleLoading);
         
         setTimeout(loader.toggleLoading, 500);
     }, 500);
